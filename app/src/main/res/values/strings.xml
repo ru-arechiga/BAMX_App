@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">BAMX_App</string>
     <string name="title_activity_sobre_bamx2">sobre_BAMX2</string>
+    <string name="sobrebamx">Sobre BAMX</string>
+    <string name="voluntariado">Voluntariado</string>
+    <string name="mis_donaciones">Mis donaciones</string>
+    <string name="donar_especie">Donar especie</string>
+    <string name="donar_dinero">Donar dinero</string>
+
 </resources>

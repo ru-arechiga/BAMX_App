@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_sobrebamx"
+        android:icon="@drawable/sobrebamx_b"
+        android:title="@string/sobrebamx"
+        android:fontFamily="@font/poppins"/>
+
+    <item
+        android:id="@+id/navigation_voluntariado"
+        android:icon="@drawable/voluntariado_b"
+        android:title="@string/voluntariado"
+        android:fontFamily="@font/poppins"/>
+
+    <item
+        android:id="@+id/navigation_misdonaciones"
+        android:icon="@drawable/misdonaciones_b"
+        android:title="@string/mis_donaciones"
+        android:fontFamily="@font/poppins"/>
+
+    <item
+        android:id="@+id/navigation_donarespecie"
+        android:icon="@drawable/donarespecie_b"
+        android:title="@string/donar_especie"
+        android:fontFamily="@font/poppins"/>
+
+    <item
+        android:id="@+id/navigation_donardinero"
+        android:icon="@drawable/donardinero_b"
+        android:title="@string/donar_dinero"
+        android:fontFamily="@font/poppins"/>
+
+</menu>
