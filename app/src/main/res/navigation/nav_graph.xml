@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/sobreBamx">
+
+    <fragment
+        android:id="@+id/sobreBamx"
+        android:name="com.example.bamx_app.SobreBamx"
+        android:label="fragment_sobre_bamx"
+        tools:layout="@layout/fragment_sobre_bamx" />
+    <fragment
+        android:id="@+id/voluntariado"
+        android:name="com.example.bamx_app.Voluntariado"
+        android:label="fragment_voluntariado"
+        tools:layout="@layout/fragment_voluntariado" />
+    <fragment
+        android:id="@+id/misDonaciones"
+        android:name="com.example.bamx_app.MisDonaciones"
+        android:label="fragment_mis_donaciones"
+        tools:layout="@layout/fragment_mis_donaciones" />
+    <fragment
+        android:id="@+id/donarEspecie"
+        android:name="com.example.bamx_app.DonarEspecie"
+        android:label="fragment_donar_especie"
+        tools:layout="@layout/fragment_donar_especie" />
+    <fragment
+        android:id="@+id/donarDinero"
+        android:name="com.example.bamx_app.DonarDinero"
+        android:label="fragment_donar_dinero"
+        tools:layout="@layout/fragment_donar_dinero" />
+</navigation>
