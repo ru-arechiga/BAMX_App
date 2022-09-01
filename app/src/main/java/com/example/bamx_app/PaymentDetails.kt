@@ -1,96 +1,88 @@
-package com.example.bamx_app;
+package com.example.bamx_app
 
-import android.content.Intent;
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.jar.JarException;
+import android.widget.TextView
+import android.os.Bundle
+import org.json.JSONObject
+import org.json.JSONException
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link PaymentDetails#newInstance} factory method to
+ * A simple [Fragment] subclass.
+ * Use the [PaymentDetails.newInstance] factory method to
  * create an instance of this fragment.
  */
-public class PaymentDetails extends Fragment {
-
-    TextView txtId, txtAmount, txtStatus;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+class PaymentDetails : Fragment() {
+    var txtId: TextView? = null
+    var txtAmount: TextView? = null
+    var txtStatus: TextView? = null
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public PaymentDetails() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PaymentDetails.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PaymentDetails newInstance(String param1, String param2) {
-        PaymentDetails fragment = new PaymentDetails();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-
-            txtId = (TextView)getView().findViewById(R.id.txtId);
-            txtAmount = (TextView)getView().findViewById(R.id.txtAmount);
-            txtStatus = (TextView)getView().findViewById(R.id.txtStatus);
-
-            Intent intent = getActivity().getIntent();
-
-            try{
-                JSONObject jsonObject = new JSONObject(intent.getStringExtra("PaymentDetails"));
-                showDetails(jsonObject.getJSONObject("response"),intent.getStringExtra("PaymentAmount"));
-            } catch (JSONException e) {
-                e.printStackTrace();
+    private var mParam1: String? = null
+    private var mParam2: String? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (arguments != null) {
+            mParam1 = requireArguments().getString(ARG_PARAM1)
+            mParam2 = requireArguments().getString(ARG_PARAM2)
+            txtId = requireView().findViewById<View>(R.id.txtId) as TextView
+            txtAmount = requireView().findViewById<View>(R.id.txtAmount) as TextView
+            txtStatus = requireView().findViewById<View>(R.id.txtStatus) as TextView
+            val intent = requireActivity().intent
+            try {
+                val jsonObject = JSONObject(intent.getStringExtra("PaymentDetails"))
+                showDetails(
+                    jsonObject.getJSONObject("response"),
+                    intent.getStringExtra("PaymentAmount")
+                )
+            } catch (e: JSONException) {
+                e.printStackTrace()
             }
         }
     }
 
-    private void showDetails(JSONObject response, String paymentAmount) {
+    private fun showDetails(response: JSONObject, paymentAmount: String?) {
         try {
-            txtId.setText(response.getString("id"));
-            txtStatus.setText(response.getString("state"));
-            txtAmount.setText(response.getString(String.format("$%s, paymentAmount")));
-        } catch (JSONException e) {
-            e.printStackTrace();
+            txtId!!.text = response.getString("id")
+            txtStatus!!.text = response.getString("state")
+            txtAmount!!.text = response.getString(String.format("$%s, paymentAmount"))
+        } catch (e: JSONException) {
+            e.printStackTrace()
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_payment_details, container, false);
+        return inflater.inflate(R.layout.fragment_payment_details, container, false)
+    }
+
+    companion object {
+        // TODO: Rename parameter arguments, choose names that match
+        // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+        private const val ARG_PARAM1 = "param1"
+        private const val ARG_PARAM2 = "param2"
+
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment PaymentDetails.
+         */
+        // TODO: Rename and change types and number of parameters
+        fun newInstance(param1: String?, param2: String?): PaymentDetails {
+            val fragment = PaymentDetails()
+            val args = Bundle()
+            args.putString(ARG_PARAM1, param1)
+            args.putString(ARG_PARAM2, param2)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }
