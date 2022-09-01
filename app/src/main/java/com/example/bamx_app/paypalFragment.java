@@ -1,5 +1,8 @@
 package com.example.bamx_app;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,12 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.bamx_app.Config.Config;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
+import com.paypal.android.sdk.payments.PaymentConfirmation;
+
+import org.json.JSONException;
 
 import java.math.BigDecimal;
 
@@ -102,6 +109,31 @@ public class paypalFragment extends Fragment {
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
         intent.putExtra(PaymentActivity.EXTRA_PAYMENT,payPalPayment);
         startActivityForResult(intent, PAYPAL_REQUEST_CODE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == PAYPAL_REQUEST_CODE) {
+            if(resultCode == RESULT_OK){
+                PaymentConfirmation confirmation = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+                if(confirmation != null){
+                    try{
+                        String paymentDetails = confirmation.toJSONObject().toString(4);
+
+                       startActivity(new Intent(paypalFragment.this.getActivity(),PaymentDetails.class)
+                               .putExtra("PaymentDetails", paymentDetails)
+                               .putExtra("PaymentAmount",amount)
+                       );
+                    } catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+            else if(resultCode == Activity.RESULT_CANCELED)
+                Toast.makeText(paypalFragment.this.getActivity(), "Cancelar", Toast.LENGTH_SHORT).show();
+        }
+        else if(resultCode == PaymentActivity.RESULT_EXTRAS_INVALID)
+            Toast.makeText(paypalFragment.this.getActivity(), "Invalido", Toast.LENGTH_SHORT).show();
 
     }
     @Override
