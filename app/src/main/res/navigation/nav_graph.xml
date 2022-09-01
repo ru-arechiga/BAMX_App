@@ -30,4 +30,8 @@
         android:name="com.example.bamx_app.DonarDinero"
         android:label="fragment_donar_dinero"
         tools:layout="@layout/fragment_donar_dinero" />
+    <fragment
+        android:id="@+id/paypalFragment2"
+        android:name="com.example.bamx_app.paypalFragment"
+        android:label="paypalFragment" />
 </navigation>

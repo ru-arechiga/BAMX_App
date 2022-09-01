@@ -9,12 +9,14 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.bamx_app.SobreBamx"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="411dp"
         android:layout_height="618dp"
+        app:defaultNavHost="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include4" />
+        app:layout_constraintTop_toBottomOf="@+id/include4"
+        app:navGraph="@navigation/nav_graph"/>
 
     <include
         android:id="@+id/include5"
@@ -22,6 +24,8 @@
 
     <include
         android:id="@+id/include4"
-        layout="@layout/activity_header" />
+        layout="@layout/activity_header"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
