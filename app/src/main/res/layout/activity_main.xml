@@ -18,10 +18,10 @@
 
     <include
         android:id="@+id/include5"
-        layout="@layout/footer" />
+        layout="@layout/activity_footer" />
 
     <include
         android:id="@+id/include4"
-        layout="@layout/header" />
+        layout="@layout/activity_header" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
