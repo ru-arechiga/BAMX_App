@@ -5,6 +5,9 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.example.bamx_app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,8 +15,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        fragmentoSobreBamx = SobreBamx()
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val bottomNavigationView = binding.include5.navigationView
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+
+        val navController = navHostFragment.navController
+        bottomNavigationView.setupWithNavController(navController)
+
+        //setContentView(R.layout.activity_main)
+        //fragmentoSobreBamx = SobreBamx()
     }
 
     fun facebook(view: View?) {

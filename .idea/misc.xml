@@ -13,9 +13,11 @@
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/header.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/nav_graph.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/sobre_bamx1.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_footer.xml" value="0.11347517730496454" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_sobre_bamx.xml" value="0.38630995513699584" />
         <entry key="app/src/main/res/layout/fragment_voluntariado.xml" value="0.23857421875" />
+        <entry key="app/src/main/res/menu/navigation.xml" value="0.20925925925925926" />
       </map>
     </option>
   </component>
