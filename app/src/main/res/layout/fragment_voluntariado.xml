@@ -120,6 +120,24 @@
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/naranja"
+            android:fontFamily="@font/poppins"
+            android:letterSpacing="0.2"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:text="Enviar"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:cornerRadius="0dp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
