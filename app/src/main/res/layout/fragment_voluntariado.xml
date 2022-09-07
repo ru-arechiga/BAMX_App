@@ -8,136 +8,144 @@
     android:background="@color/grisClaro"
     tools:context=".Voluntariado">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:fontFamily="@font/poppins"
-            android:text="Voluntariado corporativo"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/negro"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            app:boxBackgroundColor="#FFFF"
-            app:boxStrokeWidth="0dp">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="25dp"
                 android:fontFamily="@font/poppins"
-                android:hint="Nombre"
-                android:scaleX="0.8"
-                android:textColor="@color/grisOscuro"
-                android:textColorHint="@color/grisOscuro"
-                android:textSize="16sp" />
+                android:text="Voluntariado corporativo"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/negro"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="25dp"
-            app:boxBackgroundColor="#FFFF"
-            app:boxStrokeWidth="0dp">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:hint="Empresa"
-                android:scaleX="0.8"
-                android:textColor="@color/grisOscuro"
-                android:textColorHint="@color/grisOscuro"
-                android:textSize="16sp" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                app:boxBackgroundColor="#FFFF"
+                app:boxStrokeWidth="0dp">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Nombre"
+                    android:scaleX="0.8"
+                    android:textColor="@color/grisOscuro"
+                    android:textColorHint="@color/grisOscuro"
+                    android:textSize="16sp"
+                    android:inputType="textPersonName"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="25dp"
-            app:boxBackgroundColor="#FFFF"
-            app:boxStrokeWidth="0dp">
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:hint="Email"
-                android:scaleX="0.8"
-                android:textColor="@color/grisOscuro"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                app:boxBackgroundColor="#FFFF"
+                app:boxStrokeWidth="0dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="25dp"
-            app:boxBackgroundColor="#FFFF"
-            app:boxStrokeWidth="0dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Empresa"
+                    android:scaleX="0.8"
+                    android:textColor="@color/grisOscuro"
+                    android:textColorHint="@color/grisOscuro"
+                    android:textSize="16sp"
+                    android:inputType="textPersonName"/>
 
-            <com.google.android.material.textfield.TextInputEditText
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:hint="Teléfono"
-                android:scaleX="0.8"
-                android:textColor="@color/grisOscuro"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                app:boxBackgroundColor="#FFFF"
+                app:boxStrokeWidth="0dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="25dp"
-            app:boxBackgroundColor="#FFFF"
-            app:boxStrokeWidth="0dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Email"
+                    android:scaleX="0.8"
+                    android:textColor="@color/grisOscuro"
+                    android:textSize="16sp"
+                    android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                app:boxBackgroundColor="#FFFF"
+                app:boxStrokeWidth="0dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Teléfono"
+                    android:scaleX="0.8"
+                    android:textColor="@color/grisOscuro"
+                    android:textSize="16sp"
+                    android:inputType="phone"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                app:boxBackgroundColor="#FFFF"
+                app:boxStrokeWidth="0dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Mensaje"
+                    android:scaleX="0.8"
+                    android:textColor="@color/grisOscuro"
+                    android:textSize="16sp"
+                    android:inputType="textMultiLine"
+                    android:lines="6"
+                    android:gravity="top" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:backgroundTint="@color/naranja"
                 android:fontFamily="@font/poppins"
-                android:hint="Mensaje"
-                android:scaleX="0.8"
-                android:textColor="@color/grisOscuro"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="@color/naranja"
-            android:fontFamily="@font/poppins"
-            android:letterSpacing="0.2"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="10dp"
-            android:text="Enviar"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textStyle="bold"
-            app:cornerRadius="0dp" />
-
-    </LinearLayout>
+                android:letterSpacing="0.2"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:text="Enviar"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                app:cornerRadius="0dp" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

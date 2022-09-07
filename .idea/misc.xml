@@ -16,11 +16,13 @@
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/nav_graph.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/sobre_bamx1.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/menu/navigation.xml" value="0.11666666666666667" />
+        <entry key="app/src/main/res/layout/activity_header.xml" value="0.16666666666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.20652173913043478" />
         <entry key="app/src/main/res/layout/fragment_donar_dinero.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_donar_especie.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_donar_especie.xml" value="0.11539154052734374" />
         <entry key="app/src/main/res/layout/fragment_mis_donaciones.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_paypal.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_voluntariado.xml" value="0.20344390869140633" />
+        <entry key="app/src/main/res/layout/fragment_voluntariado.xml" value="0.1308334350585937" />
       </map>
     </option>
   </component>
