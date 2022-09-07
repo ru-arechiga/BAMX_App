@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
             android:fontFamily="@font/poppins"
-            android:text="Voluntariado Corporativo"
+            android:text="Voluntariado corporativo"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/negro"
