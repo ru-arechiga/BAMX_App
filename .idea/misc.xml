@@ -18,6 +18,8 @@
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/menu/navigation.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/fragment_donar_dinero.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_donar_especie.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_mis_donaciones.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_paypal.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_voluntariado.xml" value="0.1" />
       </map>
     </option>
