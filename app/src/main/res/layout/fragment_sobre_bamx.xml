@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:background="@color/rojo"
-                android:text="TextView" />
+                android:text="Hola hola hola" />
 
             <ImageView
                 android:id="@+id/imageView12"
