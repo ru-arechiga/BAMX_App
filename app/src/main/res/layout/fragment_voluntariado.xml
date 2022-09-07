@@ -139,4 +139,5 @@
             app:cornerRadius="0dp" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
