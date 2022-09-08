@@ -18,10 +18,10 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginBottom="25dp"
                 android:fontFamily="@font/poppins"
                 android:text="Donar en especie"
@@ -33,7 +33,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="25dp"
                 app:boxBackgroundColor="#FFFF"
                 app:boxStrokeWidth="0dp">
@@ -43,6 +43,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="Nombre"
+                    android:inputType="textPersonName"
                     android:scaleX="0.8"
                     android:textColor="@color/grisOscuro"
                     android:textColorHint="@color/grisOscuro"
@@ -53,7 +54,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="25dp"
                 app:boxBackgroundColor="#FFFF"
                 app:boxStrokeWidth="0dp">
 
@@ -62,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="Producto"
+                    android:inputType="textPersonName"
                     android:scaleX="0.8"
                     android:textColor="@color/grisOscuro"
                     android:textColorHint="@color/grisOscuro"
@@ -69,13 +71,31 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="15dp"
-                android:text="Soy productor" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                android:background="#FFFF"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                app:boxBackgroundColor="#FFFF"
+                app:boxStrokeWidth="0dp">
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:checked="false"
+                    android:fontFamily="@font/poppins"
+                    android:includeFontPadding="true"
+                    android:padding="20dp"
+                    android:text="¿Eres productor?"
+                    android:textColor="@color/grisOscuro"
+                    android:textSize="20sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -89,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:scaleX="0.8"
                     android:textColor="@color/grisOscuro"
                     android:textSize="16sp" />
@@ -106,6 +127,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="Teléfono"
+                    android:inputType="phone"
                     android:scaleX="0.8"
                     android:textColor="@color/grisOscuro"
                     android:textSize="16sp" />
@@ -122,18 +144,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:gravity="top"
                     android:hint="Mensaje"
+                    android:inputType="textMultiLine"
+                    android:lines="6"
                     android:scaleX="0.8"
                     android:textColor="@color/grisOscuro"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/verde"
+                android:layout_marginBottom="50dp"
+                android:backgroundTint="@color/naranja"
                 android:fontFamily="@font/poppins"
                 android:letterSpacing="0.2"
                 android:paddingLeft="20dp"

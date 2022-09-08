@@ -1,10 +1,13 @@
 package com.example.bamx_app
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.RadioButton
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,6 +20,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class DonarEspecie : Fragment() {
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
