@@ -26,7 +26,7 @@
         android:fontFamily="@font/poppins"/>
 
     <item
-        android:id="@+id/paypalFragment2"
+        android:id="@+id/donarDinero"
         android:icon="@drawable/donardinero_b"
         android:title="@string/donar_dinero"
         android:fontFamily="@font/poppins"/>
