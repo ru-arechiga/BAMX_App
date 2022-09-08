@@ -32,11 +32,11 @@
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="25dp">
+                android:layout_marginBottom="25dp"
+                app:boxBackgroundColor="#FFFF"
+                app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -52,11 +52,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="25dp">
+                android:layout_marginBottom="25dp"
+                app:boxBackgroundColor="#FFFF"
+                app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -72,11 +72,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="25dp">
+                android:layout_marginBottom="25dp"
+                app:boxBackgroundColor="#FFFF"
+                app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -90,11 +90,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="25dp">
+                android:layout_marginBottom="25dp"
+                app:boxBackgroundColor="#FFFF"
+                app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -109,7 +109,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
                 android:background="#FFFF"
                 android:gravity="center"
@@ -121,7 +121,7 @@
                 <Spinner
                     android:id="@+id/spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:drawSelectorOnTop="true"
                     android:dropDownWidth="wrap_content"
                     android:entries="@array/recurrencia"
@@ -134,7 +134,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
                 android:background="#FFFF"
                 android:scaleX="0.8"
@@ -164,6 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="50dp"
+                android:backgroundTint="@color/rojo"
                 android:fontFamily="@font/poppins"
                 android:letterSpacing="0.2"
                 android:paddingLeft="20dp"
