@@ -56,18 +56,23 @@ class DonarDinero : Fragment(), View.OnClickListener {
                 val nombres: TextInputEditText = requireView().findViewById(R.id.nombres)
                 val apellidos: TextInputEditText = requireView().findViewById(R.id.apellidos)
                 val email: TextInputEditText = requireView().findViewById(R.id.email)
+                val telefono: TextInputEditText = requireView().findViewById(R.id.telefono)
+                val direccion: TextInputEditText = requireView().findViewById(R.id.direccion)
                 val frecuencia: Spinner = requireView().findViewById(R.id.frecuencia)
                 val anonimato: CheckBox = requireView().findViewById(R.id.anonimato)
 
                 if(anonimato.isChecked() == false) {
                     database = FirebaseDatabase.getInstance().getReference("DonadoresDinero")
-                    val donadorDinero = donadorDinero(monto.text.toString(), nombres.text.toString(), apellidos.text.toString(), email.text.toString(), frecuencia.getSelectedItem().toString())
-                    if (donadorDinero.monto!!.isNotEmpty() && donadorDinero.nombres!!.isNotEmpty() && donadorDinero.apellidos!!.isNotEmpty() && donadorDinero.email!!.isNotEmpty()){
+                    val donadorDinero = donadorDinero(nombres.text.toString(), apellidos.text.toString(), email.text.toString(), telefono.text.toString(), direccion.text.toString())
+                    if (donadorDinero.nombres!!.isNotEmpty() && donadorDinero.apellidos!!.isNotEmpty() && donadorDinero.email!!.isNotEmpty() && donadorDinero.telefono!!.isNotEmpty()){
                         database.child(nombres.text.toString() + " " + apellidos.text.toString()).setValue(donadorDinero).addOnSuccessListener {
                             monto.text!!.clear()
                             nombres.text!!.clear()
                             apellidos.text!!.clear()
                             email.text!!.clear()
+                            telefono.text!!.clear()
+                            direccion.text!!.clear()
+                            frecuencia.setSelection(1)
                             anonimato.setChecked(false)
                             Toast.makeText(
                                 activity?.applicationContext,
@@ -88,6 +93,8 @@ class DonarDinero : Fragment(), View.OnClickListener {
                     nombres.text!!.clear()
                     apellidos.text!!.clear()
                     email.text!!.clear()
+                    telefono.text!!.clear()
+                    direccion.text!!.clear()
                     anonimato.setChecked(false)
                 }
             }

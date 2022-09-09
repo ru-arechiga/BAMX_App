@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "653384754238",
+    "firebase_url": "https://dbbamx-default-rtdb.firebaseio.com",
+    "project_id": "dbbamx",
+    "storage_bucket": "dbbamx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653384754238:android:97b58f479493e88fbf9d6f",
+        "android_client_info": {
+          "package_name": "com.example.bamx_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653384754238-povfg8vi1teu0861u7pfbj6squm3mt6n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRiZQQisHNTFFOQ3SzqKVYEHt7b-yqob0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653384754238-povfg8vi1teu0861u7pfbj6squm3mt6n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
