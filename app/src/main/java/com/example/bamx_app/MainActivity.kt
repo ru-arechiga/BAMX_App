@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
@@ -15,11 +16,11 @@ import com.example.bamx_app.databinding.ActivityMainBinding
 import com.example.bamx_app.databinding.FragmentVoluntariadoBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var fragmentoSobreBamx: SobreBamx
-    private lateinit var binding: Voluntariado
     private lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +33,9 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         bottomNavigationView.setupWithNavController(navController)
 
-        //setContentView(R.layout.activity_main)
-        //fragmentoSobreBamx = SobreBamx()
+        database = FirebaseDatabase.getInstance().getReference("Voluntarios")
+        val voluntario = voluntario("Test", "Test", "Test", "3312273531", "HOLA")
+        database.child(voluntario.nombre.toString()).setValue(voluntario)
     }
 
     fun facebook(view: View?) {

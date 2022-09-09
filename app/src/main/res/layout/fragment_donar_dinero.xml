@@ -32,6 +32,55 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/botonDonarOffline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/rojo"
+                    android:fontFamily="@font/poppins"
+                    android:letterSpacing="0.2"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:text="Donar ahora"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    app:cornerRadius="0dp" />
+
+                <Button
+                    android:id="@+id/botonDonarAhora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FFFF"
+                    android:color="@color/rojo"
+                    android:fontFamily="@font/poppins"
+                    android:letterSpacing="0.2"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:text="Donar offline"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/rojo"
+                    android:textStyle="bold"
+                    app:cornerRadius="0dp"
+                    app:strokeColor="@color/rojo"
+                    app:strokeWidth="2dp" />
+            </LinearLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

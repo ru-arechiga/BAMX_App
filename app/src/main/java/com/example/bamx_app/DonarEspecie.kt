@@ -75,8 +75,7 @@ class DonarEspecie : Fragment(), View.OnClickListener {
                         Toast.makeText(activity?.applicationContext, "Error en el registro", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(activity?.applicationContext, "Todos los campos son mandatorios",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity?.applicationContext, "Todos los campos son mandatorios", Toast.LENGTH_SHORT).show()
                 }
             }
         }
