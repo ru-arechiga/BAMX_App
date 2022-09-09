@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grisClaro"
-    tools:context=".DonarDinero">
+    tools:context=".DonarDinero"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
