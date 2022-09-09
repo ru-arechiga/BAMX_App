@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/rojo"
-    tools:context=".SobreBamx">
+    tools:context=".MainActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -27,18 +27,42 @@
                 android:src="@drawable/inicio" />
 
             <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:gravity="center"
+                android:text="Acerca de BAMX"
+                android:textColor="@color/white" />
+
+            <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="103dp"
                 android:background="@color/rojo"
-                android:text="Hola hola hola" />
+                android:text="El Banco de Alimentos de Guadalajara genera acceso a una alimentación digna para personas en situación vulneraeble mediante un equipo de trabajo profesional y capacitado, cumpliendo las necesidades de las partes interesadas y comprometidos con la mejora continua"
+                android:textColor="@color/white" />
 
             <ImageView
                 android:id="@+id/imageView12"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="353dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/foto2" />
+
+            <TextView
+                android:id="@+id/objetivo"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:gravity="center"
+                android:text="Objetivo"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:text="Nuestro objetivo es contribuir a la reducción de la inseguridad alimentaria a través de, la entrega de despensas a familias en situación vulnerable en el Estado de Jalisco."
+                android:textColor="@color/white" />
 
             <ImageView
                 android:id="@+id/imageView11"
@@ -52,6 +76,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/foto3" />
+
+            <TextView
+                android:id="@+id/informacion"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="Información" />
+
+            <fragment
+                android:id="@+id/google_maps"
+                android:name="com.example.bamx_app.googleMaps"
+                android:layout_width="match_parent"
+                android:layout_height="471dp"></fragment>
+
+            <TextView
+                android:id="@+id/direccionBamxGdl"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="Pichón #1147. Col. Morelos. 44910, Guadalajara Jalisco, México"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/telefonoBamxGdl"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="GDL: 33 3810 6595"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/correoBamxGdl"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="comunicacionbamx@bdalimentos.org" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
