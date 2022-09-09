@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="Telefono"
-                    android:inputType="textEmailAddress"
+                    android:inputType="phone"
                     android:scaleX="0.8"
                     android:textColor="@color/grisOscuro"
                     android:textSize="16sp" />

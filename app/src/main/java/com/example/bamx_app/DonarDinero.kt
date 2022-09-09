@@ -95,6 +95,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
                     email.text!!.clear()
                     telefono.text!!.clear()
                     direccion.text!!.clear()
+                    frecuencia.setSelection(1)
                     anonimato.setChecked(false)
                 }
             }
