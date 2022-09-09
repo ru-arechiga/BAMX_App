@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
+import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,10 +21,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [Voluntariado.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Voluntariado : Fragment() {
+class Voluntariado : Fragment(), View.OnClickListener {
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +41,43 @@ class Voluntariado : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_voluntariado, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_voluntariado, container, false)
+        val botton: Button = view.findViewById(R.id.botonEnviar)
+        botton.setOnClickListener(this)
+        return view
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.botonEnviar -> {
+                val nombre: TextInputEditText = requireView().findViewById(R.id.nombre)
+                val empresa: TextInputEditText = requireView().findViewById(R.id.empresa)
+                val email: TextInputEditText = requireView().findViewById(R.id.email)
+                val telefono: TextInputEditText = requireView().findViewById(R.id.telefono)
+                val mensaje: TextInputEditText = requireView().findViewById(R.id.mensaje)
+
+                database = FirebaseDatabase.getInstance().getReference("Voluntarios")
+                val voluntario = voluntario(nombre.text.toString(), empresa.text.toString(), email.text.toString(), telefono.text.toString(), mensaje.text.toString())
+                if (voluntario.nombre!!.isNotEmpty() && voluntario.empresa!!.isNotEmpty() && voluntario.email!!.isNotEmpty() && voluntario.telefono!!.isNotEmpty() && voluntario.mensaje!!.isNotEmpty()){
+                    database.child(nombre.text.toString()).setValue(voluntario).addOnSuccessListener {
+                        nombre.text!!.clear()
+                        empresa.text!!.clear()
+                        email.text!!.clear()
+                        telefono.text!!.clear()
+                        mensaje.text!!.clear()
+                        Toast.makeText(
+                            activity?.applicationContext,
+                            "Registro exitoso",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }.addOnFailureListener{
+                        Toast.makeText(activity?.applicationContext, "Error en el registro",Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(activity?.applicationContext, "Todos los campos son mandatorios",Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     companion object {

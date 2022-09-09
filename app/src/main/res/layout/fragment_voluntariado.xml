@@ -39,15 +39,16 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="Nombre"
+                    android:inputType="textPersonName"
                     android:scaleX="0.8"
                     android:textColor="@color/grisOscuro"
                     android:textColorHint="@color/grisOscuro"
-                    android:textSize="16sp"
-                    android:inputType="textPersonName"/>
+                    android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,15 +60,17 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/empresa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:gravity="bottom"
                     android:hint="Empresa"
+                    android:inputType="textPersonName"
                     android:scaleX="0.8"
                     android:textColor="@color/grisOscuro"
                     android:textColorHint="@color/grisOscuro"
-                    android:textSize="16sp"
-                    android:inputType="textPersonName"/>
+                    android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,14 +82,15 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:scaleX="0.8"
                     android:textColor="@color/grisOscuro"
-                    android:textSize="16sp"
-                    android:inputType="textEmailAddress"/>
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -97,14 +101,15 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/telefono"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="Teléfono"
+                    android:inputType="phone"
                     android:scaleX="0.8"
                     android:textColor="@color/grisOscuro"
-                    android:textSize="16sp"
-                    android:inputType="phone"/>
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -115,20 +120,21 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mensaje"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:gravity="top"
                     android:hint="Mensaje"
-                    android:scaleX="0.8"
-                    android:textColor="@color/grisOscuro"
-                    android:textSize="16sp"
                     android:inputType="textMultiLine"
                     android:lines="6"
-                    android:gravity="top" />
+                    android:scaleX="0.8"
+                    android:textColor="@color/grisOscuro"
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/botonEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

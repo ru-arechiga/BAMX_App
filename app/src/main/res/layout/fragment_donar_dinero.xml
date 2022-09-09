@@ -39,6 +39,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/monto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -59,6 +60,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nombres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -79,6 +81,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/apellidos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -97,6 +100,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -119,7 +123,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/frecuencia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawSelectorOnTop="true"
@@ -143,7 +147,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/anonimato"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:button="@null"
@@ -159,7 +163,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/botonEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

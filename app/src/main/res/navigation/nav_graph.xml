@@ -34,4 +34,8 @@
         android:id="@+id/paypalFragment2"
         android:name="com.example.bamx_app.paypalFragment"
         android:label="paypalFragment" />
+    <fragment
+        android:id="@+id/donarOffline"
+        android:name="com.example.bamx_app.DonarOffline"
+        android:label="fragment_donar_offline" />
 </navigation>

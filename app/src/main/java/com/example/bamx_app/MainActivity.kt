@@ -8,13 +8,19 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.bamx_app.databinding.ActivityMainBinding
+import com.example.bamx_app.databinding.FragmentVoluntariadoBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var fragmentoSobreBamx: SobreBamx
+    private lateinit var binding: Voluntariado
+    private lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,4 +53,5 @@ class MainActivity : AppCompatActivity() {
         openURL.data = Uri.parse("https://www.instagram.com/bda_guadalajara/")
         startActivity(openURL)
     }
+
 }

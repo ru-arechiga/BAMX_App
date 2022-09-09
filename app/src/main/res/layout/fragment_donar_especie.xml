@@ -39,6 +39,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -59,6 +60,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/producto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -82,12 +84,12 @@
                 app:boxStrokeWidth="0dp">
 
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/productor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:button="@null"
-                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:checked="false"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:fontFamily="@font/poppins"
                     android:includeFontPadding="true"
                     android:padding="20dp"
@@ -105,6 +107,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -123,6 +126,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/telefono"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -141,6 +145,7 @@
                 app:boxStrokeWidth="0dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mensaje"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -154,7 +159,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/botonEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
