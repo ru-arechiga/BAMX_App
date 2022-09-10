@@ -47,7 +47,6 @@
                     android:scaleY="0.8">
 
                     <Button
-                        android:id="@+id/botonDonarOffline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -68,7 +67,6 @@
                         app:strokeWidth="2dp" />
 
                     <Button
-                        android:id="@+id/botonDonarAhora"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"

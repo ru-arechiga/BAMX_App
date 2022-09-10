@@ -14,6 +14,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/layoutDonarAhora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -40,13 +41,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="25dp"
                     android:orientation="horizontal"
                     android:scaleX="0.8"
                     android:scaleY="0.8">
 
                     <Button
-                        android:id="@+id/botonDonarOffline"
+                        android:id="@+id/botonDonarAhora"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -62,10 +62,12 @@
                         android:textAllCaps="true"
                         android:textColor="#FFFF"
                         android:textStyle="bold"
-                        app:cornerRadius="0dp" />
+                        app:cornerRadius="0dp"
+                        app:strokeColor="@color/rojo"
+                        app:strokeWidth="2dp" />
 
                     <Button
-                        android:id="@+id/botonDonarAhora"
+                        android:id="@+id/botonDonarOffline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -89,194 +91,376 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/infoDonacionOffline"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="25dp"
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/monto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:hint="Monto a donar (MXN)"
-                    android:inputType="number"
-                    android:scaleX="0.8"
-                    android:textColor="@color/grisOscuro"
-                    android:textColorHint="@color/grisOscuro"
-                    android:textSize="16sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="25dp"
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/nombres"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:hint="Nombre(s)"
-                    android:inputType="textPersonName"
-                    android:scaleX="0.8"
-                    android:textColor="@color/grisOscuro"
-                    android:textColorHint="@color/grisOscuro"
-                    android:textSize="16sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="25dp"
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/apellidos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:hint="Apellido(s)"
-                    android:inputType="textPersonName"
-                    android:scaleX="0.8"
-                    android:textColor="@color/grisOscuro"
-                    android:textSize="16sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="25dp"
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:scaleX="0.8"
-                    android:textColor="@color/grisOscuro"
-                    android:textSize="16sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="25dp"
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/telefono"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:hint="Telefono"
-                    android:inputType="phone"
-                    android:scaleX="0.8"
-                    android:textColor="@color/grisOscuro"
-                    android:textSize="16sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="25dp"
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/direccion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:gravity="top"
-                    android:hint="Dirección de contacto (opcional)"
-                    android:inputType="textMultiLine"
-                    android:lines="6"
-                    android:scaleX="0.8"
-                    android:textColor="@color/grisOscuro"
-                    android:textSize="16sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:background="#FFFF"
-                android:gravity="center"
-                android:scaleX="0.8"
-                android:scaleY="0.8"
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp">
-
-                <Spinner
-                    android:id="@+id/frecuencia"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawSelectorOnTop="true"
-                    android:dropDownWidth="wrap_content"
-                    android:entries="@array/recurrencia"
-                    android:padding="20dp"
-                    android:paddingStart="12dp"
-                    android:spinnerMode="dialog"
-                    android:theme="@style/Dialog" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:background="#FFFF"
-                android:scaleX="0.8"
-                android:scaleY="0.8"
-                app:boxBackgroundColor="#FFFF"
-                app:boxStrokeWidth="0dp">
-
-                <CheckBox
-                    android:id="@+id/anonimato"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:button="@null"
-                    android:checked="false"
-                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-                    android:fontFamily="@font/poppins"
-                    android:includeFontPadding="true"
-                    android:padding="20dp"
-                    android:text="Donación anónima"
-                    android:textColor="@color/grisOscuro"
-                    android:textSize="20sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/botonEnviar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"
                 android:layout_marginBottom="50dp"
-                android:backgroundTint="@color/rojo"
-                android:fontFamily="@font/poppins"
-                android:letterSpacing="0.2"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="10dp"
-                android:text="Donar ahora"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                app:cornerRadius="0dp" />
+                android:clipToPadding="false"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
+                    android:fontFamily="@font/poppins"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingRight="20dp"
+                    android:scaleX="0.8"
+                    android:text="Por favor transfiere tu donativo a:"
+                    android:textAlignment="center"
+                    android:textScaleX="1.25"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
+                    android:fontFamily="@font/poppins"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:scaleX="0.8"
+                    android:text="Banco Diocesano de Guadalajara A.C."
+                    android:textAlignment="center"
+                    android:textScaleX="1.25"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
+                    android:fontFamily="@font/poppins"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="20dp"
+                    android:scaleX="0.8"
+                    android:text="Banco:"
+                    android:textAlignment="center"
+                    android:textScaleX="1.25"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
+                    android:fontFamily="@font/poppins"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:scaleX="0.8"
+                    android:text="BBVA"
+                    android:textAlignment="center"
+                    android:textScaleX="1.25"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
+                    android:fontFamily="@font/poppins"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="20dp"
+                    android:scaleX="0.8"
+                    android:text="Número de cuenta:"
+                    android:textAlignment="center"
+                    android:textScaleX="1.25"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
+                    android:fontFamily="@font/poppins"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:scaleX="0.8"
+                    android:text="480300543"
+                    android:textAlignment="center"
+                    android:textScaleX="1.25"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
+                    android:fontFamily="@font/poppins"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="20dp"
+                    android:scaleX="0.8"
+                    android:text="CLABE:"
+                    android:textAlignment="center"
+                    android:textScaleX="1.25"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
+                    android:fontFamily="@font/poppins"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:scaleX="0.8"
+                    android:text="012320004803005439"
+                    android:textAlignment="center"
+                    android:textScaleX="1.25"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFF"
+                    android:fontFamily="@font/poppins"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="20dp"
+                    android:scaleX="0.8"
+                    android:text="Swift Code:"
+                    android:textAlignment="center"
+                    android:textScaleX="1.25"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
+                    android:fontFamily="@font/poppins"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="20dp"
+                    android:scaleX="0.8"
+                    android:text="BCMRMXMMPYM"
+                    android:textAlignment="center"
+                    android:textScaleX="1.25"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/infoDonacionOnline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="25dp"
+                    app:boxBackgroundColor="#FFFF"
+                    app:boxStrokeWidth="0dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/monto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Monto a donar (MXN)"
+                        android:inputType="number"
+                        android:scaleX="0.8"
+                        android:textColor="@color/grisOscuro"
+                        android:textColorHint="@color/grisOscuro"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="25dp"
+                    app:boxBackgroundColor="#FFFF"
+                    app:boxStrokeWidth="0dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nombres"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Nombre(s)"
+                        android:inputType="textPersonName"
+                        android:scaleX="0.8"
+                        android:textColor="@color/grisOscuro"
+                        android:textColorHint="@color/grisOscuro"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="25dp"
+                    app:boxBackgroundColor="#FFFF"
+                    app:boxStrokeWidth="0dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/apellidos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Apellido(s)"
+                        android:inputType="textPersonName"
+                        android:scaleX="0.8"
+                        android:textColor="@color/grisOscuro"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="25dp"
+                    app:boxBackgroundColor="#FFFF"
+                    app:boxStrokeWidth="0dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:scaleX="0.8"
+                        android:textColor="@color/grisOscuro"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="25dp"
+                    app:boxBackgroundColor="#FFFF"
+                    app:boxStrokeWidth="0dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/telefono"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Telefono"
+                        android:inputType="phone"
+                        android:scaleX="0.8"
+                        android:textColor="@color/grisOscuro"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="25dp"
+                    app:boxBackgroundColor="#FFFF"
+                    app:boxStrokeWidth="0dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/direccion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="top"
+                        android:hint="Dirección de contacto (opcional)"
+                        android:inputType="textMultiLine"
+                        android:lines="6"
+                        android:scaleX="0.8"
+                        android:textColor="@color/grisOscuro"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:background="#FFFF"
+                    android:gravity="center"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    app:boxBackgroundColor="#FFFF"
+                    app:boxStrokeWidth="0dp">
+
+                    <Spinner
+                        android:id="@+id/frecuencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawSelectorOnTop="true"
+                        android:dropDownWidth="wrap_content"
+                        android:entries="@array/recurrencia"
+                        android:padding="20dp"
+                        android:paddingStart="12dp"
+                        android:spinnerMode="dialog"
+                        android:theme="@style/Dialog" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:background="#FFFF"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    app:boxBackgroundColor="#FFFF"
+                    app:boxStrokeWidth="0dp">
+
+                    <CheckBox
+                        android:id="@+id/anonimato"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:checked="false"
+                        android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                        android:fontFamily="@font/poppins"
+                        android:includeFontPadding="true"
+                        android:padding="20dp"
+                        android:text="Donación anónima"
+                        android:textColor="@color/grisOscuro"
+                        android:textSize="20sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/botonEnviar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="50dp"
+                    android:backgroundTint="@color/rojo"
+                    android:fontFamily="@font/poppins"
+                    android:letterSpacing="0.2"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:text="Donar ahora"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    app:cornerRadius="0dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

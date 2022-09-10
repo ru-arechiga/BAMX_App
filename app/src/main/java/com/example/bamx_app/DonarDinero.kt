@@ -1,17 +1,23 @@
 package com.example.bamx_app
 
+import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.res.ColorStateList
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,7 +51,11 @@ class DonarDinero : Fragment(), View.OnClickListener {
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_donar_dinero, container, false)
         val botton: Button = view.findViewById(R.id.botonEnviar)
+        val boton: Button = view.findViewById(R.id.botonDonarOffline)
+        val bottton: Button = view.findViewById(R.id.botonDonarAhora)
         botton.setOnClickListener(this)
+        boton.setOnClickListener(this)
+        bottton.setOnClickListener(this)
         return view
     }
 
@@ -98,6 +108,30 @@ class DonarDinero : Fragment(), View.OnClickListener {
                     frecuencia.setSelection(1)
                     anonimato.setChecked(false)
                 }
+            }
+            R.id.botonDonarOffline -> {
+                val infoDonacionOffline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOffline)
+                val infoDonacionOnline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOnline)
+                val bDonarOffline: Button = requireView().findViewById(R.id.botonDonarOffline)
+                val bDonarAhora: Button = requireView().findViewById(R.id.botonDonarAhora)
+                infoDonacionOnline.setVisibility(View.GONE)
+                infoDonacionOffline.setVisibility(View.VISIBLE)
+                bDonarOffline.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+                bDonarAhora.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.blanco)))
+                bDonarAhora.setTextColor(resources.getColor(R.color.rojo))
+                bDonarOffline.setTextColor(resources.getColor(R.color.blanco))
+            }
+            R.id.botonDonarAhora -> {
+                val infoDonacionOffline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOffline)
+                val infoDonacionOnline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOnline)
+                val bDonarOffline: Button = requireView().findViewById(R.id.botonDonarOffline)
+                val bDonarAhora: Button = requireView().findViewById(R.id.botonDonarAhora)
+                infoDonacionOnline.setVisibility(View.VISIBLE)
+                infoDonacionOffline.setVisibility(View.GONE)
+                bDonarOffline.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.blanco)))
+                bDonarAhora.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+                bDonarAhora.setTextColor(resources.getColor(R.color.blanco))
+                bDonarOffline.setTextColor(resources.getColor(R.color.rojo))
             }
         }
     }

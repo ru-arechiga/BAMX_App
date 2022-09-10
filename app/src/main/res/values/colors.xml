@@ -13,4 +13,5 @@
     <color name="negro">#161616</color>
     <color name="grisClaro">#f1f1f1</color>
     <color name="grisOscuro">#5e5e5e</color>
+    <color name="blanco">#FFFF</color>
 </resources>
