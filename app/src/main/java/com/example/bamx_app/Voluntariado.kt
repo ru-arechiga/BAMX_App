@@ -10,6 +10,8 @@ import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,7 +59,7 @@ class Voluntariado : Fragment(), View.OnClickListener {
                 val mensaje: TextInputEditText = requireView().findViewById(R.id.mensaje)
 
                 database = FirebaseDatabase.getInstance().getReference("Voluntarios")
-                val voluntario = voluntario(nombre.text.toString(), empresa.text.toString(), email.text.toString(), telefono.text.toString(), mensaje.text.toString())
+                val voluntario = voluntario(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombre.text.toString(), empresa.text.toString(), email.text.toString(), telefono.text.toString(), mensaje.text.toString())
                 if (voluntario.nombre!!.isNotEmpty() && voluntario.empresa!!.isNotEmpty() && voluntario.email!!.isNotEmpty() && voluntario.telefono!!.isNotEmpty() && voluntario.mensaje!!.isNotEmpty()){
                     database.child(nombre.text.toString()).setValue(voluntario).addOnSuccessListener {
                         nombre.text!!.clear()

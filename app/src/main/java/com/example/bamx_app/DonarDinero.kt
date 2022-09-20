@@ -2,6 +2,7 @@ package com.example.bamx_app
 
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.res.ColorStateList
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,12 +12,15 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -59,6 +63,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
         return view
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.botonEnviar -> {
@@ -73,7 +78,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
 
                 if(anonimato.isChecked() == false) {
                     database = FirebaseDatabase.getInstance().getReference("DonadoresDinero")
-                    val donadorDinero = donadorDinero(nombres.text.toString(), apellidos.text.toString(), email.text.toString(), telefono.text.toString(), direccion.text.toString())
+                    val donadorDinero = donadorDinero(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombres.text.toString(), apellidos.text.toString(), email.text.toString(), telefono.text.toString(), direccion.text.toString())
                     if (donadorDinero.nombres!!.isNotEmpty() && donadorDinero.apellidos!!.isNotEmpty() && donadorDinero.email!!.isNotEmpty() && donadorDinero.telefono!!.isNotEmpty()){
                         database.child(nombres.text.toString() + " " + apellidos.text.toString()).setValue(donadorDinero).addOnSuccessListener {
                             monto.text!!.clear()

@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,7 +59,7 @@ class DonarEspecie : Fragment(), View.OnClickListener {
                 val mensaje: TextInputEditText = requireView().findViewById(R.id.mensaje)
 
                 database = FirebaseDatabase.getInstance().getReference("DonadoresEspecie")
-                val donadorEspecie = donadorEspecie(nombre.text.toString(), producto.text.toString(), productor.isChecked(), email.text.toString(), telefono.text.toString(), mensaje.text.toString())
+                val donadorEspecie = donadorEspecie(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombre.text.toString(), producto.text.toString(), productor.isChecked(), email.text.toString(), telefono.text.toString(), mensaje.text.toString())
                 if (donadorEspecie.nombre!!.isNotEmpty() && donadorEspecie.producto!!.isNotEmpty() && donadorEspecie.email!!.isNotEmpty() && donadorEspecie.telefono!!.isNotEmpty() && donadorEspecie.mensaje!!.isNotEmpty()){
                     database.child(nombre.text.toString()).setValue(donadorEspecie).addOnSuccessListener {
                         nombre.text!!.clear()
