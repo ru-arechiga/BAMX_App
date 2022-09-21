@@ -31,6 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="31dp"
                 android:gravity="center"
+                android:fontFamily="@font/bebasneue"
+                android:textSize="20sp"
                 android:text="Acerca de BAMX"
                 android:textColor="@color/white" />
 
@@ -39,6 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="103dp"
                 android:background="@color/rojo"
+                android:gravity="center"
+                android:fontFamily="@font/bebasneue"
                 android:text="El Banco de Alimentos de Guadalajara genera acceso a una alimentación digna para personas en situación vulneraeble mediante un equipo de trabajo profesional y capacitado, cumpliendo las necesidades de las partes interesadas y comprometidos con la mejora continua"
                 android:textColor="@color/white" />
 
@@ -54,6 +58,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
                 android:gravity="center"
+                android:fontFamily="@font/bebasneue"
+                android:textSize="20sp"
                 android:text="Objetivo"
                 android:textColor="@color/white" />
 
@@ -61,6 +67,8 @@
                 android:id="@+id/textView15"
                 android:layout_width="match_parent"
                 android:layout_height="66dp"
+                android:fontFamily="@font/bebasneue"
+                android:gravity="center"
                 android:text="Nuestro objetivo es contribuir a la reducción de la inseguridad alimentaria a través de, la entrega de despensas a familias en situación vulnerable en el Estado de Jalisco."
                 android:textColor="@color/white" />
 
@@ -83,6 +91,8 @@
                 android:layout_height="35dp"
                 android:gravity="center"
                 android:textColor="@color/white"
+                android:fontFamily="@font/bebasneue"
+                android:textSize="20sp"
                 android:text="Información" />
 
             <fragment
@@ -97,6 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:gravity="center"
+                android:fontFamily="@font/bebasneue"
                 android:text="Pichón #1147. Col. Morelos. 44910, Guadalajara Jalisco, México"
                 android:textColor="@color/white" />
 
@@ -105,6 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:gravity="center"
+                android:fontFamily="@font/bebasneue"
                 android:text="GDL: 33 3810 6595"
                 android:textColor="@color/white" />
 
@@ -114,6 +126,7 @@
                 android:layout_height="32dp"
                 android:gravity="center"
                 android:textColor="@color/white"
+                android:fontFamily="@font/bebasneue"
                 android:text="comunicacionbamx@bdalimentos.org" />
 
         </LinearLayout>
