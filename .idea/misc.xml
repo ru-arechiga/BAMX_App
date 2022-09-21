@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/drawable-xxxhdpi/bg_gradient.xml" value="0.1" />
+        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/drawable-xxxhdpi/splash_screen.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_footer.xml" value="0.14942528735632185" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_header.xml" value="2.0" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />

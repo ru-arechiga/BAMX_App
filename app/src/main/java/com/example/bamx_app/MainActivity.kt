@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_BAMX_App)
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
