@@ -5,15 +5,17 @@
       <map>
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/drawable-xxxhdpi/bg_gradient.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/drawable-xxxhdpi/splash_screen.xml" value="0.1" />
+        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/font/fuentes_texto.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_footer.xml" value="0.14942528735632185" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_header.xml" value="2.0" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_main.xml" value="0.12" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_sobre_bamx2.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/footer.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_blank.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_blank2.xml" value="0.1" />
+        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_google_maps.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_paypal.xml" value="0.1" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_sobre_bamx.xml" value="0.1" />
+        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_sobre_bamx.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/header.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/nav_graph.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/sobre_bamx1.xml" value="0.1" />

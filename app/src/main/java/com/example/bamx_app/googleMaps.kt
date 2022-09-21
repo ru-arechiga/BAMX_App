@@ -17,8 +17,8 @@ import com.google.android.gms.maps.model.MarkerOptions
 class googleMaps : Fragment() {
 
     private val callback = OnMapReadyCallback { googleMap ->
-        val bamxGDL = LatLng(20.65648952263486, -103.35539031827524)
-        googleMap.addMarker(MarkerOptions().position(bamxGDL).title("BAMX GDL"))
+        val bamxGDL = LatLng(20.655955781826687, -103.35519252907912)
+        googleMap.addMarker(MarkerOptions().position(bamxGDL).title("BAMX Guadalajara"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bamxGDL, 18f))
     }
 

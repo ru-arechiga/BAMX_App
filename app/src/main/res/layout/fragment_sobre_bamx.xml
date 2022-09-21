@@ -88,8 +88,9 @@
             <fragment
                 android:id="@+id/google_maps"
                 android:name="com.example.bamx_app.googleMaps"
-                android:layout_width="match_parent"
-                android:layout_height="471dp"></fragment>
+                android:layout_width="350dp"
+                android:layout_height="471dp"
+                android:layout_gravity="center"></fragment>
 
             <TextView
                 android:id="@+id/direccionBamxGdl"
