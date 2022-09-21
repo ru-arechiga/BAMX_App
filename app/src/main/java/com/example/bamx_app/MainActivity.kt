@@ -32,10 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         val navController = navHostFragment.navController
         bottomNavigationView.setupWithNavController(navController)
-
-        database = FirebaseDatabase.getInstance().getReference("Voluntarios")
-        val voluntario = voluntario("Test", "Test", "Test", "3312273531", "HOLA")
-        database.child(voluntario.nombre.toString()).setValue(voluntario)
     }
 
     fun facebook(view: View?) {
