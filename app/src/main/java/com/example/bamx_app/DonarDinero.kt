@@ -90,7 +90,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
                             email.text!!.clear()
                             telefono.text!!.clear()
                             direccion.text!!.clear()
-                            frecuencia.setSelection(1)
+                            frecuencia.setSelection(0)
                             anonimato.setChecked(false)
                             Toast.makeText(
                                 activity?.applicationContext,
@@ -113,7 +113,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
                     email.text!!.clear()
                     telefono.text!!.clear()
                     direccion.text!!.clear()
-                    frecuencia.setSelection(1)
+                    frecuencia.setSelection(0)
                     anonimato.setChecked(false)
                 }
             }
@@ -156,7 +156,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
                     email.text!!.clear()
                     telefono.text!!.clear()
                     direccion.text!!.clear()
-                    frecuencia.setSelection(1)
+                    frecuencia.setSelection(0)
                     anonimato.setChecked(false)
                     check = 0
                 }
