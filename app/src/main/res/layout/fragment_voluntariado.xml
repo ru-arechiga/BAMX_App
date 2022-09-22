@@ -64,7 +64,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:gravity="bottom"
                     android:hint="Empresa"
                     android:inputType="textPersonName"
                     android:scaleX="0.8"

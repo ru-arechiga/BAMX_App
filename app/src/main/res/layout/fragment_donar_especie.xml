@@ -92,10 +92,10 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:fontFamily="@font/poppins"
                     android:includeFontPadding="true"
-                    android:paddingStart="18dp"
-                    android:paddingTop="21.5dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="23dp"
                     android:paddingEnd="20dp"
-                    android:paddingBottom="21.25dp"
+                    android:paddingBottom="20dp"
                     android:text="¿Eres productor?"
                     android:textColor="@color/grisOscuro"
                     android:textSize="20sp" />
