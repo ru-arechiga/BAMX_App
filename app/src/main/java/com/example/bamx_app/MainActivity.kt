@@ -1,6 +1,7 @@
 package com.example.bamx_app
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -57,9 +58,12 @@ class MainActivity : AppCompatActivity() {
     fun easterEgg(view: View?) {
         count = count?.plus(1)
         if (count == 20) {
-            val openURL = Intent(Intent.ACTION_VIEW)
-            openURL.data = Uri.parse("https://www.youtube.com/watch?v=GJDNkVDGM_s")
-            startActivity(openURL)
+            val resID = resources.getIdentifier(
+                "spinningseal", "raw",
+                packageName
+            )
+            val mediaPlayer: MediaPlayer = MediaPlayer.create(this, resID)
+            mediaPlayer.start()
             count = 0
         }
     }
