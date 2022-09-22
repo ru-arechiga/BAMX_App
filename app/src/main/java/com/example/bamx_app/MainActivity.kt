@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
                 "spinningseal", "raw",
                 packageName
             )
+            Toast.makeText(this, "IN MEMORIAM: Spinning Seal FM", Toast.LENGTH_SHORT).show()
             val mediaPlayer: MediaPlayer = MediaPlayer.create(this, resID)
             mediaPlayer.start()
             count = 0
