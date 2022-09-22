@@ -41,6 +41,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var database : DatabaseReference
+    private var check: Int? = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +68,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onClick(v: View?) {
         when (v?.id) {
+
             R.id.botonEnviar -> {
                 val monto: TextInputEditText = requireView().findViewById(R.id.monto)
                 val nombres: TextInputEditText = requireView().findViewById(R.id.nombres)
@@ -126,18 +128,38 @@ class DonarDinero : Fragment(), View.OnClickListener {
                 bDonarAhora.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.blanco)))
                 bDonarAhora.setTextColor(resources.getColor(R.color.rojo))
                 bDonarOffline.setTextColor(resources.getColor(R.color.blanco))
+                check = 1
             }
             R.id.botonDonarAhora -> {
                 val infoDonacionOffline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOffline)
                 val infoDonacionOnline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOnline)
                 val bDonarOffline: Button = requireView().findViewById(R.id.botonDonarOffline)
                 val bDonarAhora: Button = requireView().findViewById(R.id.botonDonarAhora)
+                val monto: TextInputEditText = requireView().findViewById(R.id.monto)
+                val nombres: TextInputEditText = requireView().findViewById(R.id.nombres)
+                val apellidos: TextInputEditText = requireView().findViewById(R.id.apellidos)
+                val email: TextInputEditText = requireView().findViewById(R.id.email)
+                val telefono: TextInputEditText = requireView().findViewById(R.id.telefono)
+                val direccion: TextInputEditText = requireView().findViewById(R.id.direccion)
+                val frecuencia: Spinner = requireView().findViewById(R.id.frecuencia)
+                val anonimato: CheckBox = requireView().findViewById(R.id.anonimato)
                 infoDonacionOnline.setVisibility(View.VISIBLE)
                 infoDonacionOffline.setVisibility(View.GONE)
                 bDonarOffline.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.blanco)))
                 bDonarAhora.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
                 bDonarAhora.setTextColor(resources.getColor(R.color.blanco))
                 bDonarOffline.setTextColor(resources.getColor(R.color.rojo))
+                if(check == 1) {
+                    monto.text!!.clear()
+                    nombres.text!!.clear()
+                    apellidos.text!!.clear()
+                    email.text!!.clear()
+                    telefono.text!!.clear()
+                    direccion.text!!.clear()
+                    frecuencia.setSelection(1)
+                    anonimato.setChecked(false)
+                    check = 0
+                }
             }
         }
     }
