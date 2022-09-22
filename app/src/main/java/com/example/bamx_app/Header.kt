@@ -10,8 +10,6 @@ import android.widget.Toast
 
 class Header : AppCompatActivity() {
 
-    lateinit var facebookLogo: ImageView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_header)

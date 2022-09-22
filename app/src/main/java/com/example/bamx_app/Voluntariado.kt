@@ -2,6 +2,7 @@ package com.example.bamx_app
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,9 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -26,6 +28,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Voluntariado : Fragment(), View.OnClickListener {
+    val connectedRef = Firebase.database.getReference(".info/connected")
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -39,6 +42,21 @@ class Voluntariado : Fragment(), View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        connectedRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val connected = snapshot.getValue(Boolean::class.java) ?: false
+                if (connected) {
+
+                    Log.d("Conexion", "conectado a la base de datos")
+                } else {
+                    Log.d("Conexion", "no conectado a la base de datos")
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.w("Conexion", "El listener fue cancelado")
+            }
+        })
     }
 
     override fun onCreateView(

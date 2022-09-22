@@ -21,5 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation"
+        app:itemTextAppearanceActive="@style/BNVTitleSize"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

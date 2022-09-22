@@ -4,4 +4,8 @@
         <item name="android:windowBackground">@drawable/splash_screen</item>
         <item name="android:statusBarColor">@color/blanco</item>
     </style>
+
+    <style name="BNVTitleSize" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+    </style>
 </resources>
