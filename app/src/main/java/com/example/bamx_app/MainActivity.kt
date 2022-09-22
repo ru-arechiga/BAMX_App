@@ -22,6 +22,7 @@ import com.google.firebase.ktx.Firebase
 class MainActivity : AppCompatActivity() {
 
     private lateinit var database : DatabaseReference
+    private var count: Int? = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_BAMX_App)
@@ -51,6 +52,17 @@ class MainActivity : AppCompatActivity() {
         val openURL = Intent(Intent.ACTION_VIEW)
         openURL.data = Uri.parse("https://www.instagram.com/bda_guadalajara/")
         startActivity(openURL)
+    }
+
+    fun easterEgg(view: View?) {
+        count = count?.plus(1)
+        Log.e("EE", count.toString())
+        if (count == 20) {
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://www.youtube.com/watch?v=GJDNkVDGM_s")
+            startActivity(openURL)
+            count = 0
+        }
     }
 
 }
