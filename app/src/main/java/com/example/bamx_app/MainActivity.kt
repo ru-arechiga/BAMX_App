@@ -56,7 +56,6 @@ class MainActivity : AppCompatActivity() {
 
     fun easterEgg(view: View?) {
         count = count?.plus(1)
-        Log.e("EE", count.toString())
         if (count == 20) {
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse("https://www.youtube.com/watch?v=GJDNkVDGM_s")
