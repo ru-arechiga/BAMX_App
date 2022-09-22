@@ -370,7 +370,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="17.5dp"
                     app:boxBackgroundColor="#FFFF"
                     app:boxStrokeWidth="0dp">
 
@@ -391,7 +391,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="7.5dp"
                     android:background="#FFFF"
                     android:gravity="center"
                     android:scaleX="0.8"
@@ -416,7 +416,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="17.25dp"
                     android:background="#FFFF"
                     android:scaleX="0.8"
                     android:scaleY="0.8"
@@ -432,7 +432,10 @@
                         android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                         android:fontFamily="@font/poppins"
                         android:includeFontPadding="true"
-                        android:padding="20dp"
+                        android:paddingStart="20dp"
+                        android:paddingTop="21.5dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="21.25dp"
                         android:text="Donación anónima"
                         android:textColor="@color/grisOscuro"
                         android:textSize="20sp" />

@@ -3,10 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/cliente/AndroidStudioProjects/BAMX_App/app/src/main/res/font/fuentes_texto.xml" value="0.234375" />
-        <entry key="..\:/Users/cliente/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/cliente/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_sobre_bamx.xml" value="0.22" />
-        <entry key="..\:/Users/cliente/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_voluntariado.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/drawable-xxxhdpi/bg_gradient.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/drawable-xxxhdpi/splash_screen.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/font/fuentes_texto.xml" value="0.1" />
@@ -17,6 +13,7 @@
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/footer.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_blank.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_blank2.xml" value="0.1" />
+        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_donar_dinero.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_google_maps.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_paypal.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_sobre_bamx.xml" value="0.14666666666666667" />
