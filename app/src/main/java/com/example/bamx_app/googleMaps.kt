@@ -19,7 +19,7 @@ class googleMaps : Fragment() {
     private val callback = OnMapReadyCallback { googleMap ->
         val bamxGDL = LatLng(20.655955781826687, -103.35519252907912)
         googleMap.addMarker(MarkerOptions().position(bamxGDL).title("BAMX Guadalajara"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bamxGDL, 18f))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bamxGDL, 15f))
     }
 
     override fun onCreateView(

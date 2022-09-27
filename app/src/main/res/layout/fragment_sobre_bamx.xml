@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/rojo"
+    android:background="#ffff"
     tools:context=".MainActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -20,142 +20,290 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="match_parent"
-                android:layout_height="185dp"
-                android:src="@drawable/inicio" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="match_parent"
-                android:layout_height="31dp"
-                android:gravity="center"
-                android:fontFamily="@font/bebasneue"
-                android:textSize="20sp"
-                android:text="Acerca de BAMX"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="103dp"
-                android:background="@color/rojo"
-                android:gravity="center"
-                android:fontFamily="@font/bebasneue"
-                android:text="El Banco de Alimentos de Guadalajara genera acceso a una alimentación digna para personas en situación vulneraeble mediante un equipo de trabajo profesional y capacitado, cumpliendo las necesidades de las partes interesadas y comprometidos con la mejora continua"
-                android:textColor="@color/white" />
-
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="match_parent"
-                android:layout_height="353dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/foto2" />
-
-            <TextView
-                android:id="@+id/objetivo"
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:gravity="center"
-                android:fontFamily="@font/bebasneue"
-                android:textSize="20sp"
-                android:text="Objetivo"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="match_parent"
-                android:layout_height="66dp"
-                android:fontFamily="@font/bebasneue"
-                android:gravity="center"
-                android:text="Nuestro objetivo es contribuir a la reducción de la inseguridad alimentaria a través de, la entrega de despensas a familias en situación vulnerable en el Estado de Jalisco."
-                android:textColor="@color/white" />
-
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/foto1" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/foto3" />
-
-            <TextView
-                android:id="@+id/informacion"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:fontFamily="@font/bebasneue"
-                android:gravity="center"
-                android:text="Información"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
             <RelativeLayout
-                android:id="@+id/map_layout"
-                android:layout_width="match_parent"
-                android:layout_height="471dp">
-
-                <fragment
-                    android:id="@+id/google_maps"
-                    android:name="com.example.bamx_app.googleMaps"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginBottom="20dp" />
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/transparent_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginBottom="20dp"
-                    android:src="@drawable/transparent" />
+                    android:id="@+id/headerFondo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/logoBamx"
+                    android:layout_alignBottom="@id/logoBamx"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/fondo1" />
+
+                <ImageView
+                    android:id="@+id/logoBamx"
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:padding="20dp"
+                    app:srcCompat="@drawable/logobamx_color" />
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/direccionBamxGdl"
+            <LinearLayout
+                android:id="@+id/bloqueRojo"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:gravity="center"
-                android:fontFamily="@font/bebasneue"
-                android:text="Pichón #1147. Col. Morelos. 44910, Guadalajara Jalisco, México"
-                android:textColor="@color/white" />
+                android:layout_height="match_parent"
+                android:background="@color/rojo"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/telefonoBamxGdl"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:gravity="center"
-                android:fontFamily="@font/bebasneue"
-                android:text="GDL: 33 3810 6595"
-                android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/acercaDe"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins"
+                    android:letterSpacing="0.2"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="ACERCA DE"
+                    android:textAlignment="center"
+                    android:textColor="@color/blanco"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/correoBamxGdl"
+                <TextView
+                    android:id="@+id/descripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="El Banco de Alimentos de Guadalajara genera acceso a una alimentación digna para personas en situación vulnerable mediante un equipo de trabajo profesional y capacitado, cumpliendo las necesidades de las partes interesadas y comprometidos con la mejora continua"
+                    android:textAlignment="center"
+                    android:textColor="@color/blanco"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/Objetivos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/objetivoFondo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/objetivo"
+                    android:layout_alignBottom="@id/objetivoExplicito"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/fondo2" />
+
+                <TextView
+                    android:id="@+id/objetivo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins"
+                    android:letterSpacing="0.2"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="OBJETIVO"
+                    android:textAlignment="center"
+                    android:textColor="@color/blanco"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/objetivoExplicito"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/objetivo"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="El Banco de Alimentos de Guadalajara genera acceso a una alimentación digna para personas en situación vulnerable mediante un equipo de trabajo profesional y capacitado, cumpliendo las necesidades de las partes interesadas y comprometidos con la mejora continua"
+                    android:textAlignment="center"
+                    android:textColor="@color/blanco"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/bloqueNaranja"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:fontFamily="@font/bebasneue"
-                android:text="comunicacionbamx@bdalimentos.org" />
+                android:layout_height="match_parent"
+                android:background="@color/naranja"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/reto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins"
+                    android:letterSpacing="0.2"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="RETO"
+                    android:textAlignment="center"
+                    android:textColor="@color/blanco"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/retoExplicito"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="Acabar con el hambre"
+                    android:textAlignment="center"
+                    android:textColor="@color/blanco"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/ladoIzq"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="5dp"
+                        android:paddingBottom="20dp"
+                        android:text="En la zona metropolitana de Guadalajara, aproximadamente 15% de la población vive en condiciones de pobreza, lo que significa que unas 1,200,000 personas no tienen acceso a una alimentación adecuada"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/ladoDer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="15dp"
+                        android:paddingBottom="20dp"
+                        android:text="Se produce mucha más comida de la que se necesita para alimentar a toda la población, pero los alimentos no llegan a todos y en su lugar, se desperdician: sobra más de lo que falta"
+                        android:textAlignment="center"
+                        android:textColor="@color/blanco"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bloqueVerde"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/verde"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/infoTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:letterSpacing="0.2"
+                    android:paddingStart="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingEnd="20dp"
+                    android:scaleX="0.8"
+                    android:text="INFORMACIÓN"
+                    android:textAlignment="center"
+                    android:textColor="@color/verde"
+                    android:textScaleX="1.25"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="20dp"
+                    android:scaleX="0.8"
+                    android:text="Pichón #1147. Col. Morelos. 44910, Guadalajara Jalisco, México"
+                    android:textAlignment="center"
+                    android:textColor="@color/grisOscuro"
+                    android:textScaleX="1.25"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="phone"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="5dp"
+                    android:scaleX="0.8"
+                    android:text="GDL: 33 3810 6595"
+                    android:textAlignment="center"
+                    android:textColor="@color/grisOscuro"
+                    android:textScaleX="1.25"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="email"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="15dp"
+                    android:scaleX="0.8"
+                    android:text="comunicacionbamx@bdalimentos.org"
+                    android:textAlignment="center"
+                    android:textColor="@color/grisOscuro"
+                    android:textScaleX="1.25"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:id="@+id/mapWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8">
+
+                    <FrameLayout
+                        android:id="@+id/mapContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleX="0.9"
+                        android:scaleY="0.9">
+
+                        <fragment
+                            android:id="@+id/google_maps"
+                            android:name="com.example.bamx_app.googleMaps"
+                            android:layout_width="match_parent"
+                            android:layout_height="400dp"
+                            android:layout_gravity="center" />
+
+                    </FrameLayout>
+                </FrameLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
