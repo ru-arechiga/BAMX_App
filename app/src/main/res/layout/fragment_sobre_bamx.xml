@@ -81,6 +81,120 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/misionYvision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/misionLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/fondoMision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignWithParentIfMissing="false"
+                        android:layout_alignTop="@id/mision"
+                        android:layout_alignBottom="@id/misionExplicita"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/fondo3" />
+
+                    <TextView
+                        android:id="@+id/mision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins"
+                        android:letterSpacing="0.2"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingEnd="20dp"
+                        android:text="MISIÓN"
+                        android:textAlignment="center"
+                        android:textColor="@color/blanco"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/misionExplicita"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignWithParentIfMissing="true"
+                        android:layout_below="@id/mision"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="20dp"
+                        android:text="Generar acceso a una alimentación digna para personas en situación vulnerable en nuestra comunidad"
+                        android:textAlignment="center"
+                        android:textColor="@color/blanco"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/visionLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/fondoVision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignWithParentIfMissing="false"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:adjustViewBounds="true"
+                        android:baselineAlignBottom="false"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/fondo4" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/vision"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:letterSpacing="0.2"
+                            android:paddingStart="20dp"
+                            android:paddingTop="20dp"
+                            android:paddingEnd="20dp"
+                            android:text="VISIÓN"
+                            android:textAlignment="center"
+                            android:textColor="@color/blanco"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/visionExplicita"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignWithParentIfMissing="true"
+                            android:fontFamily="@font/poppins"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
+                            android:paddingBottom="20dp"
+                            android:text="Abatir la pobreza  alimentaria en Jalisco   "
+                            android:textAlignment="center"
+                            android:textColor="@color/blanco"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
             <RelativeLayout
                 android:id="@+id/Objetivos"
                 android:layout_width="wrap_content"
@@ -98,7 +212,7 @@
                 <TextView
                     android:id="@+id/objetivo"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins"
                     android:letterSpacing="0.2"
@@ -114,7 +228,7 @@
                 <TextView
                     android:id="@+id/objetivoExplicito"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/objetivo"
                     android:layout_weight="1"
@@ -122,7 +236,7 @@
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:paddingBottom="20dp"
-                    android:text="El Banco de Alimentos de Guadalajara genera acceso a una alimentación digna para personas en situación vulnerable mediante un equipo de trabajo profesional y capacitado, cumpliendo las necesidades de las partes interesadas y comprometidos con la mejora continua"
+                    android:text="Nuestro objetivo es contribuir a la reducción de la inseguridad alimentaria a través de, la entrega de despensas a familias en situación vulnerable en el Estado de Jalisco."
                     android:textAlignment="center"
                     android:textColor="@color/blanco"
                     android:textSize="12sp" />
@@ -177,6 +291,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/poppins"
                         android:paddingStart="15dp"
                         android:paddingEnd="5dp"
                         android:paddingBottom="20dp"
@@ -190,6 +305,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/poppins"
                         android:paddingStart="5dp"
                         android:paddingEnd="15dp"
                         android:paddingBottom="20dp"
