@@ -1,10 +1,12 @@
 package com.example.bamx_app
 
+import android.app.Application
 import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +23,25 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.paypal.android.sdk.payments.PayPalPayment
+import com.paypal.checkout.PayPalCheckout
+import com.paypal.checkout.approve.OnApprove
+import com.paypal.checkout.cancel.OnCancel
+import com.paypal.checkout.config.CheckoutConfig
+import com.paypal.checkout.config.Environment
+import com.paypal.checkout.config.SettingsConfig
+import com.paypal.checkout.createorder.CreateOrder
+import com.paypal.checkout.createorder.CurrencyCode
+import com.paypal.checkout.createorder.OrderIntent
+import com.paypal.checkout.createorder.UserAction
+import com.paypal.checkout.error.OnError
+import com.paypal.checkout.order.Amount
+import com.paypal.checkout.order.AppContext
+import com.paypal.checkout.order.Order
+import com.paypal.checkout.order.PurchaseUnit
+import com.paypal.checkout.paymentbutton.PaymentButtonContainer
+import com.paypal.checkout.shipping.OnShippingChange
+import com.paypal.pyplcheckout.home.view.interfaces.PayPalCheckoutButtonClickedListener
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -45,6 +66,22 @@ class DonarDinero : Fragment(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        PayPalCheckout.registerCallbacks(
+            onApprove = OnApprove { approval ->
+            approval.orderActions.capture { captureOrderResult ->
+                Log.i("CaptureOrder", "Order successfully captured: $captureOrderResult")
+            }
+        },
+            onCancel = OnCancel {
+                // Optional callback for when a buyer cancels the paysheet
+            },
+            onError = OnError { errorInfo ->
+                // Optional error callback
+            },
+            onShippingChange = OnShippingChange { shippingChangeData, shippingChangeActions ->
+                // Optional onShippingChange callback. See update shipping section for more details.
+            }
+        )
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -54,7 +91,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view: View = inflater.inflate(R.layout.fragment_donar_dinero, container, false)
         val botton: Button = view.findViewById(R.id.botonEnviar)
         val boton: Button = view.findViewById(R.id.botonDonarOffline)
@@ -78,6 +115,26 @@ class DonarDinero : Fragment(), View.OnClickListener {
                 val direccion: TextInputEditText = requireView().findViewById(R.id.direccion)
                 val frecuencia: Spinner = requireView().findViewById(R.id.frecuencia)
                 val anonimato: CheckBox = requireView().findViewById(R.id.anonimato)
+
+                PayPalCheckout.startCheckout(
+                    CreateOrder { createOrderActions ->
+                        val order = Order(
+                            intent = OrderIntent.CAPTURE,
+                            appContext = AppContext(
+                                userAction = UserAction.PAY_NOW
+                            ),
+                            purchaseUnitList = listOf(
+                                PurchaseUnit(
+                                    amount = Amount(
+                                        currencyCode = CurrencyCode.MXN,
+                                        value = monto.text.toString()
+                                    )
+                                )
+                            )
+                        )
+                        createOrderActions.create(order)
+                    }
+                )
 
                 if(anonimato.isChecked() == false) {
                     database = FirebaseDatabase.getInstance().getReference("DonadoresDinero")

@@ -3,44 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/drawable-xxxhdpi/bg_gradient.xml" value="0.1" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/drawable-xxxhdpi/splash_screen.xml" value="0.1" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/font/fuentes_texto.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_footer.xml" value="0.14942528735632185" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_header.xml" value="2.0" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_main.xml" value="0.12" />
+        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/activity_sobre_bamx2.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/footer.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_blank.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_blank2.xml" value="0.1" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_donar_dinero.xml" value="0.22" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_donar_especie.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_google_maps.xml" value="0.1" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_mis_donaciones.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_paypal.xml" value="0.1" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_sobre_bamx.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_voluntariado.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/fragment_sobre_bamx.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/header.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/nav_graph.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/layout/sobre_bamx1.xml" value="0.1" />
         <entry key="..\:/Users/rudyr/AndroidStudioProjects/BAMX_App/app/src/main/res/menu/navigation.xml" value="0.11666666666666667" />
-        <entry key="app/src/main/res/drawable-xxxhdpi/button_borde.xml" value="0.1745" />
-        <entry key="app/src/main/res/drawable-xxxhdpi/splash_screen.xml" value="0.2065" />
-        <entry key="app/src/main/res/layout/activity_footer.xml" value="0.27590332031250003" />
-        <entry key="app/src/main/res/layout/activity_header.xml" value="0.37555185953776044" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.4838012958963283" />
-        <entry key="app/src/main/res/layout/boton.xml" value="0.16666666666666666" />
-        <entry key="app/src/main/res/layout/button_border.xml" value="0.16666666666666666" />
-        <entry key="app/src/main/res/layout/fragment_donar_dinero.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_donar_especie.xml" value="0.23642578124999997" />
-        <entry key="app/src/main/res/layout/fragment_donar_offline.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_mis_donaciones.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_payment_details.xml" value="0.20652173913043478" />
-        <entry key="app/src/main/res/layout/fragment_paypal.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_sobre_bamx.xml" value="0.3163841807909605" />
-        <entry key="app/src/main/res/layout/fragment_voluntariado.xml" value="0.24084014892578132" />
-        <entry key="app/src/main/res/menu/navigation.xml" value="0.23333333333333334" />
-        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2045" />
+        <entry key="..\:/Users/rudyr/StudioProjects/BAMX_App/app/src/main/res/layout/activity_footer.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/rudyr/StudioProjects/BAMX_App/app/src/main/res/layout/activity_header.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/rudyr/StudioProjects/BAMX_App/app/src/main/res/layout/fragment_voluntariado.xml" value="0.358695652173913" />
+        <entry key="app/src/main/res/layout/fragment_donar_dinero.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_donar_especie.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_voluntariado.xml" value="0.1" />
       </map>
     </option>
   </component>

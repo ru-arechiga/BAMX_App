@@ -19,6 +19,12 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.paypal.checkout.PayPalCheckout
+import com.paypal.checkout.config.CheckoutConfig
+import com.paypal.checkout.config.Environment
+import com.paypal.checkout.config.SettingsConfig
+import com.paypal.checkout.createorder.CurrencyCode
+import com.paypal.checkout.createorder.UserAction
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +34,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_BAMX_App)
         super.onCreate(savedInstanceState)
+        val config = CheckoutConfig(
+            application = application,
+            clientId = "AfXbZq9DheJ1DhUUyahG-vKtPXszfS5yscJ4aDvhCbeNWe16Lx6aIVzsDV9iaqfy8Jxsvt6OWLWZky5h",
+            environment = Environment.SANDBOX,
+            currencyCode = CurrencyCode.MXN,
+            userAction = UserAction.PAY_NOW,
+            settingsConfig = SettingsConfig(
+                loggingEnabled = true
+            )
+        )
+        PayPalCheckout.setConfig(config)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val bottomNavigationView = binding.include5.navigationView

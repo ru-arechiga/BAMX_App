@@ -64,11 +64,12 @@
                         android:textStyle="bold"
                         app:cornerRadius="0dp"
                         app:strokeColor="@color/rojo"
-                        app:strokeWidth="2dp" />
+                        app:strokeWidth="2dp"
+                        style="?android:attr/buttonBarButtonStyle" />
 
                     <Button
                         android:id="@+id/botonDonarOffline"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
@@ -86,7 +87,8 @@
                         android:textStyle="bold"
                         app:cornerRadius="0dp"
                         app:strokeColor="@color/rojo"
-                        app:strokeWidth="2dp" />
+                        app:strokeWidth="2dp"
+                        style="?android:attr/buttonBarButtonStyle" />
                 </LinearLayout>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -429,7 +431,7 @@
                         android:layout_height="wrap_content"
                         android:button="@null"
                         android:checked="false"
-                        android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                        android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
                         android:fontFamily="@font/poppins"
                         android:includeFontPadding="true"
                         android:paddingStart="20dp"
