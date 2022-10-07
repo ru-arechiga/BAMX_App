@@ -9,11 +9,11 @@
     tools:context=".MisDonaciones">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout8"
+        android:id="@+id/ConstraintLayout8"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="440dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
+        app:layout_constraintBottom_toTopOf="@+id/ConstraintLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -68,16 +68,16 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout6"
+        android:id="@+id/ConstraintLayout6"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="160dp"
         android:layout_marginBottom="340dp"
         android:background="@color/naranja"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout7"
+        app:layout_constraintBottom_toTopOf="@+id/ConstraintLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout8">
+        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout8">
 
         <TextView
             android:id="@+id/textView20"
@@ -154,7 +154,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout7"
+        android:id="@+id/ConstraintLayout7"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="300dp"
@@ -162,7 +162,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout6">
+        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout6">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
@@ -297,7 +297,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout7">
+        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout7">
 
         <FrameLayout
             android:layout_width="match_parent"
