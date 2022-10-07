@@ -8,25 +8,171 @@
     android:background="@color/grisClaro"
     tools:context=".MisDonaciones">
 
-    <FrameLayout
-        android:id="@+id/frameLayout7"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout8"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="550dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="440dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Mis Logros"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/negro"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.632" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="322dp"
+            android:layout_height="65dp"
+            android:layout_marginBottom="24dp"
+            android:ems="10"
+            android:hint="Inserta tu correo aquí"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#546E7A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="38dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="15dp"
+            android:text=">"
+            android:backgroundTint="@color/rojo"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTextEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextTextEmailAddress" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="340dp"
+        android:background="@color/naranja"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout8">
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/poppins"
+            android:letterSpacing="0.15"
+            android:paddingTop="8dp"
+            android:text="medallero"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/blanco"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:src="@drawable/medalla_vacia" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:src="@drawable/medalla_vacia" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:src="@drawable/medalla_vacia" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:src="@drawable/medalla_vacia" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:src="@drawable/medalla_vacia" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="300dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout6">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="30dp"
-            android:background="#FFFF">
+            android:background="#FFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -66,8 +212,11 @@
                     android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="50dp"
                     android:layout_weight="1"
                     android:text="Enero"
+                    android:textStyle="bold"
                     android:textSize="18sp" />
 
                 <TextView
@@ -76,7 +225,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="$ 00  MXN"
-                    android:textSize="18sp" />
+                    android:gravity="end"
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -90,8 +240,11 @@
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="50dp"
                     android:layout_weight="1"
-                    android:text="Enero"
+                    android:text="Febrero"
+                    android:textStyle="bold"
                     android:textSize="18sp" />
 
                 <TextView
@@ -100,7 +253,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="$ 00  MXN"
-                    android:textSize="18sp" />
+                    android:gravity="end"
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -114,8 +268,11 @@
                     android:id="@+id/textView18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="50dp"
                     android:layout_weight="1"
-                    android:text="Enero"
+                    android:text="Marzo"
+                    android:textStyle="bold"
                     android:textSize="18sp" />
 
                 <TextView
@@ -124,88 +281,93 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="$ 00  MXN"
-                    android:textSize="18sp" />
+                    android:gravity="end"
+                    android:textSize="15sp" />
             </LinearLayout>
 
         </com.google.android.material.textfield.TextInputLayout>
-    </FrameLayout>
 
-    <FrameLayout
-        android:background="@color/naranja"
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="180dp"
-        android:layout_marginBottom="435dp"
+        android:layout_marginTop="445dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout7">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@color/verde">
+
+        </FrameLayout>
+
         <TextView
-            android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/poppins"
-            android:letterSpacing="0.15"
             android:paddingTop="8dp"
-            android:text="medallero"
+            android:text="Compartir"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/blanco"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:layout_width="400dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingTop="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:gravity="center"
-            android:layout_gravity="center_horizontal">
+            android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageView3"
+            <ImageButton
+                android:id="@+id/imageButton"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:paddingRight="5dp"
+                android:contentDescription="TODO"
+                android:background="@color/verde"
                 android:paddingLeft="5dp"
-                android:src="@drawable/medalla_vacia" />
+                android:paddingRight="5dp"
+                android:src="@drawable/facebook" />
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <ImageButton
+                android:id="@+id/imageButton2"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:paddingRight="5dp"
+                android:contentDescription="TODO"
+                android:background="@color/verde"
                 android:paddingLeft="5dp"
-                android:src="@drawable/medalla_vacia" />
+                android:paddingRight="5dp"
+                android:src="@drawable/twitter" />
 
-            <ImageView
-                android:id="@+id/imageView5"
+            <ImageButton
+                android:id="@+id/imageButton3"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:paddingRight="5dp"
+                android:contentDescription="TODO"
+                android:background="@color/verde"
                 android:paddingLeft="5dp"
-                android:src="@drawable/medalla_vacia" />
+                android:paddingRight="5dp"
+                android:src="@drawable/instagram" />
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp"
-                android:src="@drawable/medalla_vacia" />
-
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp"
-                android:src="@drawable/medalla_vacia" />
         </LinearLayout>
 
-    </FrameLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

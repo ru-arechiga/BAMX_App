@@ -47,17 +47,19 @@
 
                     <Button
                         android:id="@+id/botonDonarAhora"
+                        style="?android:attr/buttonBarButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
                         android:backgroundTint="@color/rojo"
                         android:fontFamily="@font/poppins"
-                        android:letterSpacing="0.2"
+                        android:letterSpacing="0.1"
                         android:paddingLeft="20dp"
                         android:paddingTop="10dp"
                         android:paddingRight="20dp"
                         android:paddingBottom="10dp"
-                        android:text="Donar ahora"
+                        android:text="Dona en línea"
                         android:textAlignment="center"
                         android:textAllCaps="true"
                         android:textColor="#FFFF"
@@ -65,22 +67,23 @@
                         app:cornerRadius="0dp"
                         app:strokeColor="@color/rojo"
                         app:strokeWidth="2dp"
-                        style="?android:attr/buttonBarButtonStyle" />
+                        tools:ignore="TouchTargetSizeCheck" />
 
                     <Button
                         android:id="@+id/botonDonarOffline"
-                        android:layout_width="0dp"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
                         android:backgroundTint="#FFFF"
                         android:fontFamily="@font/poppins"
-                        android:letterSpacing="0.2"
+                        android:letterSpacing="0.1"
                         android:paddingLeft="20dp"
                         android:paddingTop="10dp"
                         android:paddingRight="20dp"
                         android:paddingBottom="10dp"
-                        android:text="Donar offline"
+                        android:text="Dona offline"
                         android:textAlignment="center"
                         android:textAllCaps="true"
                         android:textColor="@color/rojo"
@@ -88,7 +91,7 @@
                         app:cornerRadius="0dp"
                         app:strokeColor="@color/rojo"
                         app:strokeWidth="2dp"
-                        style="?android:attr/buttonBarButtonStyle" />
+                        tools:ignore="TouchTargetSizeCheck" />
                 </LinearLayout>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -303,7 +306,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins"
-                        android:hint="Nombre(s)"
+                        android:hint="Nombre(s)*"
                         android:inputType="textPersonName"
                         android:scaleX="0.8"
                         android:textColor="@color/grisOscuro"
@@ -324,7 +327,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins"
-                        android:hint="Apellido(s)"
+                        android:hint="Apellido(s)*"
                         android:inputType="textPersonName"
                         android:scaleX="0.8"
                         android:textColor="@color/grisOscuro"
@@ -343,7 +346,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins"
-                        android:hint="Email"
+                        android:hint="Email*"
                         android:inputType="textEmailAddress"
                         android:scaleX="0.8"
                         android:textColor="@color/grisOscuro"
@@ -362,7 +365,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins"
-                        android:hint="Telefono"
+                        android:hint="Telefono*"
                         android:inputType="phone"
                         android:scaleX="0.8"
                         android:textColor="@color/grisOscuro"
@@ -410,6 +413,7 @@
                         android:entries="@array/recurrencia"
                         android:padding="20dp"
                         android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
                         android:spinnerMode="dialog"
                         android:theme="@style/Dialog" />
 
@@ -464,7 +468,6 @@
                     app:cornerRadius="0dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
         </LinearLayout>
     </ScrollView>
 
