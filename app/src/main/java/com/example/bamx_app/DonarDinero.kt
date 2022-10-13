@@ -81,7 +81,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
                     database.child(nombres.text.toString() + " " + apellidos.text.toString()).setValue(donadorDinero).addOnSuccessListener {
                         Toast.makeText(
                             activity?.applicationContext,
-                            "Registro exitosos",
+                            "Registro exitoso",
                             Toast.LENGTH_SHORT
                         ).show()
                     }.addOnFailureListener{
@@ -238,8 +238,10 @@ class DonarDinero : Fragment(), View.OnClickListener {
                         email.setTextColor(resources.getColor(R.color.verde))
                         telefono.setTextColor(resources.getColor(R.color.verde))
                         direccion.setTextColor(resources.getColor(R.color.verde))
+                        Toast.makeText(activity?.applicationContext, "Información guardada", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(activity?.applicationContext, "Los campos indicados son mandatorios", Toast.LENGTH_SHORT).show()
+                        recordar.isChecked = false
                     }
                 } else {
                     db.borrarUsuario()
@@ -258,6 +260,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
                     email.text?.clear()
                     telefono.text?.clear()
                     direccion.text?.clear()
+                    Toast.makeText(activity?.applicationContext, "Información borrada", Toast.LENGTH_SHORT).show()
                 }
             }
         }

@@ -126,16 +126,4 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
         return arrayOf(nombres, apellidos, email, telefono, direccion)
     }
 
-//
-//    fun find(nombre : String) : String {
-//        val clause = "$COLUMN_NAME = ?"
-//        val args = arrayOf(nombre)
-//        val cursor = readableDatabase.query(TABLE_HOBBIES, null, clause, args, null, null, null)
-//        cursor.moveToLast()
-//        var result = ""
-//        if(cursor.moveToLast()) {
-//            result = cursor.getString(1).toString()
-//        }
-//        return result
-//    }
 }
