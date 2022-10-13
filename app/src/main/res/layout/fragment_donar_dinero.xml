@@ -375,7 +375,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="17.5dp"
+                    android:layout_marginBottom="20dp"
                     app:boxBackgroundColor="#FFFF"
                     app:boxStrokeWidth="0dp">
 
@@ -395,34 +395,37 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="7.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="12.5dp"
                     android:background="#FFFF"
-                    android:gravity="center"
                     android:scaleX="0.8"
                     android:scaleY="0.8"
                     app:boxBackgroundColor="#FFFF"
                     app:boxStrokeWidth="0dp">
 
-                    <Spinner
-                        android:id="@+id/frecuencia"
+                    <CheckBox
+                        android:id="@+id/recordar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawSelectorOnTop="true"
-                        android:dropDownWidth="wrap_content"
-                        android:entries="@array/recurrencia"
-                        android:padding="20dp"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:spinnerMode="dialog"
-                        android:theme="@style/Dialog" />
+                        android:button="@null"
+                        android:checked="false"
+                        android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+                        android:fontFamily="@font/poppins"
+                        android:includeFontPadding="true"
+                        android:paddingStart="20dp"
+                        android:paddingTop="21.5dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="21.25dp"
+                        android:text="Recordar información"
+                        android:textColor="@color/grisOscuro"
+                        android:textSize="20sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="17.25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="17.5dp"
                     android:background="#FFFF"
                     android:scaleX="0.8"
                     android:scaleY="0.8"
