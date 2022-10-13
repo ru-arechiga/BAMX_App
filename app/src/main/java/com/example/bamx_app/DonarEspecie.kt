@@ -31,6 +31,7 @@ class DonarEspecie : Fragment(), View.OnClickListener {
     private var param2: String? = null
 
     private lateinit var database : DatabaseReference
+    private lateinit var db : DBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +39,7 @@ class DonarEspecie : Fragment(), View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        db = DBHelper(activity)
     }
 
     override fun onCreateView(
@@ -65,6 +67,7 @@ class DonarEspecie : Fragment(), View.OnClickListener {
                 val donadorEspecie = donadorEspecie(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombre.text.toString(), producto.text.toString(), productor.isChecked(), email.text.toString(), telefono.text.toString(), mensaje.text.toString())
                 if (donadorEspecie.nombre!!.isNotEmpty() && donadorEspecie.producto!!.isNotEmpty() && donadorEspecie.email!!.isNotEmpty() && donadorEspecie.telefono!!.isNotEmpty() && donadorEspecie.mensaje!!.isNotEmpty()){
                     database.child(nombre.text.toString()).setValue(donadorEspecie).addOnSuccessListener {
+                        db.donacionEspecie()
                         nombre.text!!.clear()
                         producto.text!!.clear()
                         productor.setChecked(false)

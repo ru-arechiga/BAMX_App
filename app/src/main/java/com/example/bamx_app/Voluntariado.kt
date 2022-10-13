@@ -35,6 +35,7 @@ class Voluntariado : Fragment(), View.OnClickListener {
     private var param2: String? = null
 
     private lateinit var database : DatabaseReference
+    private lateinit var db : DBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,21 +43,7 @@ class Voluntariado : Fragment(), View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-        connectedRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val connected = snapshot.getValue(Boolean::class.java) ?: false
-                if (connected) {
-
-                    Log.d("Conexion", "conectado a la base de datos")
-                } else {
-                    Log.d("Conexion", "no conectado a la base de datos")
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.w("Conexion", "El listener fue cancelado")
-            }
-        })
+        db = DBHelper(activity)
     }
 
     override fun onCreateView(
@@ -83,6 +70,7 @@ class Voluntariado : Fragment(), View.OnClickListener {
                 val voluntario = voluntario(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombre.text.toString(), empresa.text.toString(), email.text.toString(), telefono.text.toString(), mensaje.text.toString())
                 if (voluntario.nombre!!.isNotEmpty() && voluntario.empresa!!.isNotEmpty() && voluntario.email!!.isNotEmpty() && voluntario.telefono!!.isNotEmpty() && voluntario.mensaje!!.isNotEmpty()){
                     database.child(nombre.text.toString()).setValue(voluntario).addOnSuccessListener {
+                        db.voluntariado()
                         nombre.text!!.clear()
                         empresa.text!!.clear()
                         email.text!!.clear()

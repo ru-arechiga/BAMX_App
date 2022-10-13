@@ -1,5 +1,7 @@
 package com.example.bamx_app
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
@@ -7,11 +9,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -50,20 +53,56 @@ class DonarDinero : Fragment(), View.OnClickListener {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var database : DatabaseReference
+    private lateinit var db : DBHelper
     private var check: Int? = 0
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         PayPalCheckout.registerCallbacks(
             onApprove = OnApprove { approval ->
-            approval.orderActions.capture { captureOrderResult ->
-                Log.i("CaptureOrder", "Order successfully captured: $captureOrderResult")
-            }
-        },
+                approval.orderActions.capture { captureOrderResult ->
+                    Log.i("CaptureOrder", "Order successfully captured: $captureOrderResult")
+                }
+                Toast.makeText(activity?.applicationContext, "Pago exitoso", Toast.LENGTH_SHORT).show()
+                val monto: TextInputEditText = requireView().findViewById(R.id.monto)
+                val nombres: TextInputEditText = requireView().findViewById(R.id.nombres)
+                val apellidos: TextInputEditText = requireView().findViewById(R.id.apellidos)
+                val email: TextInputEditText = requireView().findViewById(R.id.email)
+                val telefono: TextInputEditText = requireView().findViewById(R.id.telefono)
+                val direccion: TextInputEditText = requireView().findViewById(R.id.direccion)
+                val recordar: CheckBox = requireView().findViewById(R.id.recordar)
+                val anonimato: CheckBox = requireView().findViewById(R.id.anonimato)
+                val fecha: String = LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss"))
+                db.donacionDinero(monto.text.toString(), fecha)
+                if(!anonimato.isChecked) {
+                    val donadorDinero = donadorDinero(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombres.text.toString(), apellidos.text.toString(), monto.text.toString(), email.text.toString(), telefono.text.toString(), direccion.text.toString())
+                    database = FirebaseDatabase.getInstance().getReference("DonadoresDinero")
+                    database.child(nombres.text.toString() + " " + apellidos.text.toString()).setValue(donadorDinero).addOnSuccessListener {
+                        Toast.makeText(
+                            activity?.applicationContext,
+                            "Registro exitosos",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }.addOnFailureListener{
+                        Toast.makeText(activity?.applicationContext, "Error en el registro", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                monto.text?.clear()
+                anonimato.isChecked = false
+                if (!recordar.isChecked) {
+                    nombres.text?.clear()
+                    apellidos.text?.clear()
+                    email.text?.clear()
+                    telefono.text?.clear()
+                    direccion.text?.clear()
+                }
+            },
             onCancel = OnCancel {
                 // Optional callback for when a buyer cancels the paysheet
             },
             onError = OnError { errorInfo ->
+                Toast.makeText(activity?.applicationContext, "Error en el pago", Toast.LENGTH_SHORT).show()
                 // Optional error callback
             },
             onShippingChange = OnShippingChange { shippingChangeData, shippingChangeActions ->
@@ -74,6 +113,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        db = DBHelper(activity)
     }
 
     override fun onCreateView(
@@ -84,121 +124,140 @@ class DonarDinero : Fragment(), View.OnClickListener {
         val botton: Button = view.findViewById(R.id.botonEnviar)
         val boton: Button = view.findViewById(R.id.botonDonarOffline)
         val bottton: Button = view.findViewById(R.id.botonDonarAhora)
+        val recordar: CheckBox = view.findViewById(R.id.recordar)
         botton.setOnClickListener(this)
         boton.setOnClickListener(this)
         bottton.setOnClickListener(this)
+        recordar.setOnClickListener(this)
+        var usuario = db.llamarUsuario()
+        if(usuario[0] != String()) {
+            val nombres: TextInputEditText = view.findViewById(R.id.nombres)
+            val apellidos: TextInputEditText = view.findViewById(R.id.apellidos)
+            val email: TextInputEditText = view.findViewById(R.id.email)
+            val telefono: TextInputEditText = view.findViewById(R.id.telefono)
+            val direccion: TextInputEditText = view.findViewById(R.id.direccion)
+            nombres.setText(usuario[0])
+            apellidos.setText(usuario[1])
+            email.setText(usuario[2])
+            telefono.setText(usuario[3])
+            direccion.setText(usuario[4])
+            nombres.setTextColor(resources.getColor(R.color.verde))
+            apellidos.setTextColor(resources.getColor(R.color.verde))
+            email.setTextColor(resources.getColor(R.color.verde))
+            telefono.setTextColor(resources.getColor(R.color.verde))
+            direccion.setTextColor(resources.getColor(R.color.verde))
+            recordar.isChecked = true
+            nombres.isEnabled = false
+            apellidos.isEnabled = false
+            email.isEnabled = false
+            telefono.isEnabled = false
+            direccion.isEnabled = false
+        }
         return view
     }
 
+    @SuppressLint("ResourceAsColor")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onClick(v: View?) {
+        val monto: TextInputEditText = requireView().findViewById(R.id.monto)
+        val nombres: TextInputEditText = requireView().findViewById(R.id.nombres)
+        val apellidos: TextInputEditText = requireView().findViewById(R.id.apellidos)
+        val email: TextInputEditText = requireView().findViewById(R.id.email)
+        val telefono: TextInputEditText = requireView().findViewById(R.id.telefono)
+        val direccion: TextInputEditText = requireView().findViewById(R.id.direccion)
+        val recordar: CheckBox = requireView().findViewById(R.id.recordar)
+        val anonimato: CheckBox = requireView().findViewById(R.id.anonimato)
+        val infoDonacionOffline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOffline)
+        val infoDonacionOnline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOnline)
+        val bDonarOffline: Button = requireView().findViewById(R.id.botonDonarOffline)
+        val bDonarAhora: Button = requireView().findViewById(R.id.botonDonarAhora)
         when (v?.id) {
-
             R.id.botonEnviar -> {
-                val monto: TextInputEditText = requireView().findViewById(R.id.monto)
-                val nombres: TextInputEditText = requireView().findViewById(R.id.nombres)
-                val apellidos: TextInputEditText = requireView().findViewById(R.id.apellidos)
-                val email: TextInputEditText = requireView().findViewById(R.id.email)
-                val telefono: TextInputEditText = requireView().findViewById(R.id.telefono)
-                val direccion: TextInputEditText = requireView().findViewById(R.id.direccion)
-                val anonimato: CheckBox = requireView().findViewById(R.id.anonimato)
-
-                PayPalCheckout.startCheckout(
-                    CreateOrder { createOrderActions ->
-                        val order = Order(
-                            intent = OrderIntent.CAPTURE,
-                            appContext = AppContext(
-                                userAction = UserAction.PAY_NOW
-                            ),
-                            purchaseUnitList = listOf(
-                                PurchaseUnit(
-                                    amount = Amount(
-                                        currencyCode = CurrencyCode.MXN,
-                                        value = monto.text.toString()
+                if((monto.text.toString() != String()) and (anonimato.isChecked or ((nombres.text.toString() != String())
+                    and (apellidos.text.toString() != String())
+                    and (email.text.toString() != String())
+                    and (telefono.text.toString() != String()))))
+                {
+                    PayPalCheckout.startCheckout(
+                        CreateOrder { createOrderActions ->
+                            val order = Order(
+                                intent = OrderIntent.CAPTURE,
+                                appContext = AppContext(
+                                    userAction = UserAction.PAY_NOW
+                                ),
+                                purchaseUnitList = listOf(
+                                    PurchaseUnit(
+                                        amount = Amount(
+                                            currencyCode = CurrencyCode.MXN,
+                                            value = monto.text.toString()
+                                        )
                                     )
                                 )
                             )
-                        )
-                        createOrderActions.create(order)
-                    }
-                )
-
-                if(anonimato.isChecked() == false) {
-                    database = FirebaseDatabase.getInstance().getReference("DonadoresDinero")
-                    val donadorDinero = donadorDinero(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombres.text.toString(), apellidos.text.toString(), email.text.toString(), telefono.text.toString(), direccion.text.toString())
-                    if (donadorDinero.nombres!!.isNotEmpty() && donadorDinero.apellidos!!.isNotEmpty() && donadorDinero.email!!.isNotEmpty() && donadorDinero.telefono!!.isNotEmpty()){
-                        database.child(nombres.text.toString() + " " + apellidos.text.toString()).setValue(donadorDinero).addOnSuccessListener {
-                            monto.text!!.clear()
-                            nombres.text!!.clear()
-                            apellidos.text!!.clear()
-                            email.text!!.clear()
-                            telefono.text!!.clear()
-                            direccion.text!!.clear()
-                            anonimato.setChecked(false)
-                            Toast.makeText(
-                                activity?.applicationContext,
-                                "Registro exitoso",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }.addOnFailureListener{
-                            Toast.makeText(activity?.applicationContext, "Error en el registro", Toast.LENGTH_SHORT).show()
+                            createOrderActions.create(order)
                         }
-                    } else {
-                        Toast.makeText(activity?.applicationContext, "Todos los campos son mandatorios", Toast.LENGTH_SHORT).show()
-                    }
+                    )
                 } else {
-                    if (monto.text.toString().isEmpty()) {
-                        Toast.makeText(activity?.applicationContext, "Un monto es mandatorio", Toast.LENGTH_SHORT).show()
-                    }
-                    monto.text!!.clear()
-                    nombres.text!!.clear()
-                    apellidos.text!!.clear()
-                    email.text!!.clear()
-                    telefono.text!!.clear()
-                    direccion.text!!.clear()
-                    anonimato.setChecked(false)
+                    Toast.makeText(activity?.applicationContext, "Los campos indicados son mandatorios", Toast.LENGTH_SHORT).show()
                 }
             }
             R.id.botonDonarOffline -> {
-                val infoDonacionOffline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOffline)
-                val infoDonacionOnline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOnline)
-                val bDonarOffline: Button = requireView().findViewById(R.id.botonDonarOffline)
-                val bDonarAhora: Button = requireView().findViewById(R.id.botonDonarAhora)
                 infoDonacionOnline.setVisibility(View.GONE)
                 infoDonacionOffline.setVisibility(View.VISIBLE)
+                infoDonacionOnline.isEnabled = false
                 bDonarOffline.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
                 bDonarAhora.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.blanco)))
                 bDonarAhora.setTextColor(resources.getColor(R.color.rojo))
                 bDonarOffline.setTextColor(resources.getColor(R.color.blanco))
-                check = 1
             }
             R.id.botonDonarAhora -> {
-                val infoDonacionOffline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOffline)
-                val infoDonacionOnline: TextInputLayout = requireView().findViewById(R.id.infoDonacionOnline)
-                val bDonarOffline: Button = requireView().findViewById(R.id.botonDonarOffline)
-                val bDonarAhora: Button = requireView().findViewById(R.id.botonDonarAhora)
-                val monto: TextInputEditText = requireView().findViewById(R.id.monto)
-                val nombres: TextInputEditText = requireView().findViewById(R.id.nombres)
-                val apellidos: TextInputEditText = requireView().findViewById(R.id.apellidos)
-                val email: TextInputEditText = requireView().findViewById(R.id.email)
-                val telefono: TextInputEditText = requireView().findViewById(R.id.telefono)
-                val direccion: TextInputEditText = requireView().findViewById(R.id.direccion)
-                val anonimato: CheckBox = requireView().findViewById(R.id.anonimato)
                 infoDonacionOnline.setVisibility(View.VISIBLE)
                 infoDonacionOffline.setVisibility(View.GONE)
+                infoDonacionOnline.isEnabled = true
                 bDonarOffline.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.blanco)))
                 bDonarAhora.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
                 bDonarAhora.setTextColor(resources.getColor(R.color.blanco))
                 bDonarOffline.setTextColor(resources.getColor(R.color.rojo))
-                if(check == 1) {
-                    monto.text!!.clear()
-                    nombres.text!!.clear()
-                    apellidos.text!!.clear()
-                    email.text!!.clear()
-                    telefono.text!!.clear()
-                    direccion.text!!.clear()
-                    anonimato.setChecked(false)
-                    check = 0
+            }
+
+            R.id.recordar -> {
+                if(recordar.isChecked) {
+                    if((nombres.text.toString() != String())
+                                and (apellidos.text.toString() != String())
+                                and (email.text.toString() != String())
+                                and (telefono.text.toString() != String()))
+                    {
+                        db.guardarUsuario(nombres.text.toString(), apellidos.text.toString(), email.text.toString(), telefono.text.toString(), direccion.text.toString())
+                        nombres.isEnabled = false
+                        apellidos.isEnabled = false
+                        email.isEnabled = false
+                        telefono.isEnabled = false
+                        direccion.isEnabled = false
+                        nombres.setTextColor(resources.getColor(R.color.verde))
+                        apellidos.setTextColor(resources.getColor(R.color.verde))
+                        email.setTextColor(resources.getColor(R.color.verde))
+                        telefono.setTextColor(resources.getColor(R.color.verde))
+                        direccion.setTextColor(resources.getColor(R.color.verde))
+                    } else {
+                        Toast.makeText(activity?.applicationContext, "Los campos indicados son mandatorios", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    db.borrarUsuario()
+                    nombres.isEnabled = true
+                    apellidos.isEnabled = true
+                    email.isEnabled = true
+                    telefono.isEnabled = true
+                    direccion.isEnabled = true
+                    nombres.setTextColor(resources.getColor(R.color.grisOscuro))
+                    apellidos.setTextColor(resources.getColor(R.color.grisOscuro))
+                    email.setTextColor(resources.getColor(R.color.grisOscuro))
+                    telefono.setTextColor(resources.getColor(R.color.grisOscuro))
+                    direccion.setTextColor(resources.getColor(R.color.grisOscuro))
+                    nombres.text?.clear()
+                    apellidos.text?.clear()
+                    email.text?.clear()
+                    telefono.text?.clear()
+                    direccion.text?.clear()
                 }
             }
         }

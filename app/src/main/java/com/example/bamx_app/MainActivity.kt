@@ -5,20 +5,12 @@ import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.WindowManager
-import android.widget.EditText
-import android.widget.RadioButton
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.bamx_app.databinding.ActivityMainBinding
-import com.example.bamx_app.databinding.FragmentVoluntariadoBinding
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import com.paypal.checkout.PayPalCheckout
 import com.paypal.checkout.config.CheckoutConfig
 import com.paypal.checkout.config.Environment
@@ -28,11 +20,14 @@ import com.paypal.checkout.createorder.UserAction
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var db : DBHelper
     private lateinit var database : DatabaseReference
     private var count: Int? = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_BAMX_App)
+        db = DBHelper(this)
+        val (userName, userSchool) = db.findUserInfo()
         super.onCreate(savedInstanceState)
         val config = CheckoutConfig(
             application = application,
@@ -79,11 +74,11 @@ class MainActivity : AppCompatActivity() {
                 "spinningseal", "raw",
                 packageName
             )
-            Toast.makeText(this, "IN MEMORIAM: Spinning Seal FM", Toast.LENGTH_SHORT).show()
             val mediaPlayer: MediaPlayer = MediaPlayer.create(this, resID)
             mediaPlayer.start()
             count = 0
         }
-    }
 
+
+    }
 }
