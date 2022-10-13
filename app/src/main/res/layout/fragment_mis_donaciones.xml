@@ -35,8 +35,8 @@
                 android:id="@+id/ConstraintLayout7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="300dp"
-                android:layout_marginBottom="200dp">
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="50dp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout"
@@ -60,7 +60,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="25dp"
                             android:layout_weight="1"
-                            android:text="En los últimos tres meses:"
+                            android:text="Ultimas tres donaciones:"
                             android:textAlignment="textStart"
                             android:textSize="20sp" />
 
@@ -89,7 +89,7 @@
                             android:layout_weight="1"
                             android:paddingStart="0dp"
                             android:paddingEnd="50dp"
-                            android:text="Enero"
+                            android:text="Fecha"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -117,7 +117,7 @@
                             android:layout_weight="1"
                             android:paddingStart="0dp"
                             android:paddingEnd="50dp"
-                            android:text="Febrero"
+                            android:text="Fecha"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -145,7 +145,7 @@
                             android:layout_weight="1"
                             android:paddingStart="0dp"
                             android:paddingEnd="50dp"
-                            android:text="Marzo"
+                            android:text="Fecha"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -167,7 +167,7 @@
                 android:id="@+id/ConstraintLayout6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="340dp"
+                android:layout_marginBottom="50dp"
                 android:background="@color/naranja">
 
                 <TextView
@@ -246,76 +246,170 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="445dp">
+                android:layout_height="200dp">
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginBottom="30dp"
-                    android:background="@color/verde">
+                <LinearLayout
+                    android:id="@+id/contenedor_voluntariado"
+                    android:layout_width="170dp"
+                    android:layout_height="80dp"
 
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/poppins"
-                    android:paddingTop="8dp"
-                    android:text="Compartir"
-                    android:textAlignment="center"
-                    android:textAllCaps="true"
-                    android:textColor="@color/blanco"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:layout_marginEnd="5dp"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/contenedor_dinero_donado"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/cantSesVol"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:gravity="bottom"
+                        android:text="00"
+                        android:textAlignment="center"
+                        android:textColor="#139739"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:text="Sesiones de voluntariado"
+                        android:textAlignment="center"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="170dp"
+                    android:layout_height="80dp"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:gravity="bottom"
+                        android:text="00"
+                        android:textAlignment="center"
+                        android:textColor="#f0970a"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textView26"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:text="Donaciones en especie"
+                        android:textAlignment="center"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contenedor_dinero_donado"
+                    android:layout_width="170dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="5dp"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/cantDinero"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:gravity="bottom"
+                        android:text="$ 00 MXN"
+                        android:textAlignment="center"
+                        android:textColor="#e4022e"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textoDineroDonado"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:text="Dinero donado"
+                        android:textAlignment="center"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginBottom="30dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:background="@color/verde"
+                    android:orientation="vertical">
 
-                    <ImageButton
-                        android:id="@+id/imageButton"
-                        android:layout_width="70dp"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/verde"
-                        android:contentDescription="TODO"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:src="@drawable/facebook" />
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/poppins"
+                        android:paddingTop="8dp"
+                        android:text="Compartir"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textColor="@color/blanco"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                    <ImageButton
-                        android:id="@+id/imageButton2"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@color/verde"
-                        android:contentDescription="TODO"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:src="@drawable/twitter" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                    <ImageButton
-                        android:id="@+id/imageButton3"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:background="@color/verde"
-                        android:contentDescription="TODO"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:src="@drawable/instagram" />
+                        <ImageView
+                            android:id="@+id/imageView10"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:src="@drawable/whatsapp" />
 
+                        <ImageButton
+                            android:id="@+id/imageButton"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/verde"
+                            android:contentDescription="TODO"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:src="@drawable/facebook" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton2"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/verde"
+                            android:contentDescription="TODO"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:src="@drawable/twitter" />
+
+                        <ImageView
+                            android:id="@+id/imageView11"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/verde"
+                            android:contentDescription="TODO"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:src="@drawable/email_logo" />
+
+                    </LinearLayout>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
