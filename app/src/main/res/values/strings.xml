@@ -7,4 +7,13 @@
     <string name="mis_donaciones">Mis donaciones</string>
     <string name="donar_especie">Donar especie</string>
     <string name="donar_dinero">Donar dinero</string>
+    <string-array name="recurrencia">
+        <item>Nunca</item>
+        <item>Semanales</item>
+        <item>Quincenales</item>
+        <item>Mensuales</item>
+        <item>Bimestrales</item>
+        <item>Bianuales</item>
+        <item>Anuales</item>
+    </string-array>
 </resources>
