@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.google.android.material.textfield.TextInputLayout
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +23,7 @@ class MisDonaciones : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var db : DBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +31,49 @@ class MisDonaciones : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        db = DBHelper(activity)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mis_donaciones, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_mis_donaciones, container, false)
+        val volunteer: TextView = view.findViewById(R.id.volunteer)
+        val spice: TextView = view.findViewById(R.id.spice)
+        val money: TextView = view.findViewById(R.id.money)
+        val net: TextView = view.findViewById(R.id.net)
+        val conteo = db.llamarConteo()
+        volunteer.text = conteo[0]
+        spice.text = conteo[1]
+        money.text = conteo[2]
+        net.text = "$ ${conteo[3]} MXN"
+        val recientes = db.llamarRecientes()
+        if(recientes[0] != String()) {
+            val donacionesRecientes: TextInputLayout = view.findViewById(R.id.donacionesRecientes)
+            donacionesRecientes.visibility = View.VISIBLE
+            val fechaRecienteUno: TextView = view.findViewById(R.id.fechaRecienteUno)
+            val montoRecienteUno: TextView = view.findViewById(R.id.montoRecienteUno)
+            fechaRecienteUno.text = recientes[0]
+            montoRecienteUno.text = "$ ${recientes[1]}"
+        }
+        if(recientes[2] != String()) {
+            val recienteDos: LinearLayout = view.findViewById(R.id.recienteDos)
+            recienteDos.visibility = View.VISIBLE
+            val fechaRecienteDos: TextView = view.findViewById(R.id.fechaRecienteDos)
+            val montoRecienteDos: TextView = view.findViewById(R.id.montoRecienteDos)
+            fechaRecienteDos.text = recientes[2]
+            montoRecienteDos.text = "$ ${recientes[3]}"
+        }
+        if(recientes[4] != String()) {
+            val recienteTres: LinearLayout = view.findViewById(R.id.recienteTres)
+            recienteTres.visibility = View.VISIBLE
+            val fechaRecienteTres: TextView = view.findViewById(R.id.fechaRecienteTres)
+            val montoRecienteTres: TextView = view.findViewById(R.id.montoRecienteTres)
+            fechaRecienteTres.text = recientes[4]
+            montoRecienteTres.text = "$ ${recientes[5]}"
+        }
+        return view
     }
 
     companion object {

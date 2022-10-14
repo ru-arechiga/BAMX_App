@@ -8,14 +8,17 @@
     android:background="@color/grisClaro"
     tools:context=".MisDonaciones">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView21"
@@ -31,320 +34,386 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/ConstraintLayout7"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="50dp">
+                android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout"
-                    android:layout_width="350dp"
+                    android:id="@+id/dinero"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#FFFF"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:visibility="visible"
+                    tools:visibility="visible">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/net"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:scaleX="0.9"
-                        android:scaleY="0.9">
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:text="$ 0 MXN"
+                        android:textAlignment="center"
+                        android:textColor="@color/rojo"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/textView13"
-                            android:layout_width="wrap_content"
-                            android:layout_height="25dp"
-                            android:layout_weight="1"
-                            android:text="Ultimas tres donaciones:"
-                            android:textAlignment="textStart"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/textView3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="$ 00 MXN"
-                            android:textAlignment="textEnd"
-                            android:textSize="20sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/textView22"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:scaleX="0.9"
-                        android:scaleY="0.9">
-
-                        <TextView
-                            android:id="@+id/textView14"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingStart="0dp"
-                            android:paddingEnd="50dp"
-                            android:text="Fecha"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textView15"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="end"
-                            android:text="$ 00  MXN"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:scaleX="0.9"
-                        android:scaleY="0.9">
-
-                        <TextView
-                            android:id="@+id/textView16"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingStart="0dp"
-                            android:paddingEnd="50dp"
-                            android:text="Fecha"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textView17"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="end"
-                            android:text="$ 00  MXN"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:scaleX="0.9"
-                        android:scaleY="0.9">
-
-                        <TextView
-                            android:id="@+id/textView18"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingStart="0dp"
-                            android:paddingEnd="50dp"
-                            android:text="Fecha"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textView19"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="end"
-                            android:text="$ 00  MXN"
-                            android:textSize="15sp" />
-                    </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Dinero donado"
+                        android:textAlignment="center"
+                        android:textSize="10sp"
+                        android:textStyle="normal" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/donaciones"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="20dp"
+                    android:visibility="visible"
+                    tools:visibility="visible">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/ConstraintLayout6"
+                    <TextView
+                        android:id="@+id/money"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/rojo"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Donaciones monetarias"
+                        android:textAlignment="center"
+                        android:textSize="10sp"
+                        android:textStyle="normal" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/voluntario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp"
+                    android:visibility="visible"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/volunteer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/verde"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Sesiones de voluntariado"
+                        android:textAlignment="center"
+                        android:textSize="10sp"
+                        android:textStyle="normal" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/especie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="20dp"
+                    android:visibility="visible"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/spice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/verde"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Donaciones en especie"
+                        android:textAlignment="center"
+                        android:textSize="10sp"
+                        android:textStyle="normal" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/medallero"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginBottom="25dp"
+                android:clipToPadding="false"
+                android:visibility="visible"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/naranja"
+                    android:fontFamily="@font/poppins"
+                    android:letterSpacing="0.1"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:text="MEDALLERO"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/donacionesRecientes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="50dp"
-                android:background="@color/naranja">
+                android:clipToPadding="false"
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
                     android:fontFamily="@font/poppins"
-                    android:letterSpacing="0.15"
-                    android:paddingTop="8dp"
-                    android:text="medallero"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingRight="20dp"
+                    android:scaleX="0.8"
+                    android:text="Donaciones recientes:"
                     android:textAlignment="center"
-                    android:textAllCaps="true"
-                    android:textColor="@color/blanco"
+                    android:textScaleX="1.25"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textStyle="bold" />
 
                 <LinearLayout
-                    android:id="@+id/linearLayout"
+                    android:id="@+id/recienteUno"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/white"
                     android:orientation="horizontal"
-                    android:paddingTop="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:src="@drawable/medalla_vacia" />
-
-                    <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:src="@drawable/medalla_vacia" />
-
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:src="@drawable/medalla_vacia" />
-
-                    <ImageView
-                        android:id="@+id/imageView8"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:src="@drawable/medalla_vacia" />
-
-                    <ImageView
-                        android:id="@+id/imageView9"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:src="@drawable/medalla_vacia" />
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
-
-                <LinearLayout
-                    android:id="@+id/contenedor_voluntariado"
-                    android:layout_width="170dp"
-                    android:layout_height="80dp"
-
-                    android:layout_marginEnd="5dp"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/contenedor_dinero_donado"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:scaleX="0.8"
+                    android:visibility="visible">
 
                     <TextView
-                        android:id="@+id/cantSesVol"
+                        android:id="@+id/fechaRecienteUno"
                         android:layout_width="match_parent"
-                        android:layout_height="38dp"
-                        android:gravity="bottom"
-                        android:text="00"
-                        android:textAlignment="center"
-                        android:textColor="#139739"
-                        android:textSize="20sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="5dp"
+                        android:scaleX="0.8"
+                        android:textAlignment="viewStart"
+                        android:textScaleX="1.56"
+                        android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/textView24"
+                        android:id="@+id/montoRecienteUno"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:gravity="center"
-                        android:text="Sesiones de voluntariado"
-                        android:textAlignment="center"
-                        android:textSize="15sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingTop="5dp"
+                        android:paddingRight="20dp"
+                        android:scaleX="0.8"
+                        android:textAlignment="textEnd"
+                        android:textScaleX="1.56"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="170dp"
-                    android:layout_height="80dp"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
+                    android:id="@+id/recienteDos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:scaleX="0.8"
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                     <TextView
-                        android:id="@+id/textView27"
+                        android:id="@+id/fechaRecienteDos"
                         android:layout_width="match_parent"
-                        android:layout_height="38dp"
-                        android:gravity="bottom"
-                        android:text="00"
-                        android:textAlignment="center"
-                        android:textColor="#f0970a"
-                        android:textSize="20sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="5dp"
+                        android:scaleX="0.8"
+                        android:textAlignment="viewStart"
+                        android:textScaleX="1.56"
+                        android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/textView26"
+                        android:id="@+id/montoRecienteDos"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:gravity="center"
-                        android:text="Donaciones en especie"
-                        android:textAlignment="center"
-                        android:textSize="15sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingTop="5dp"
+                        android:paddingRight="20dp"
+                        android:scaleX="0.8"
+                        android:textAlignment="textEnd"
+                        android:textScaleX="1.56"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/contenedor_dinero_donado"
-                    android:layout_width="170dp"
-                    android:layout_height="80dp"
-                    android:layout_marginStart="5dp"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:id="@+id/recienteTres"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:scaleX="0.8"
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                     <TextView
-                        android:id="@+id/cantDinero"
+                        android:id="@+id/fechaRecienteTres"
                         android:layout_width="match_parent"
-                        android:layout_height="38dp"
-                        android:gravity="bottom"
-                        android:text="$ 00 MXN"
-                        android:textAlignment="center"
-                        android:textColor="#e4022e"
-                        android:textSize="20sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="5dp"
+                        android:scaleX="0.8"
+                        android:textAlignment="viewStart"
+                        android:textScaleX="1.56"
+                        android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/textoDineroDonado"
+                        android:id="@+id/montoRecienteTres"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:gravity="center"
-                        android:text="Dinero donado"
-                        android:textAlignment="center"
-                        android:textSize="15sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="#FFFF"
+                        android:fontFamily="@font/poppins"
+                        android:paddingTop="5dp"
+                        android:paddingRight="20dp"
+                        android:scaleX="0.8"
+                        android:textAlignment="textEnd"
+                        android:textScaleX="1.56"
+                        android:textSize="14sp" />
                 </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:scaleX="0.8" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="25dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="25dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -414,6 +483,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

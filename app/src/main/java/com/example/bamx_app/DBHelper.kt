@@ -25,6 +25,7 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
             private const val COLUMN_MONEY = "dinero"
             private const val COLUMN_SPICE = "especie"
             private const val COLUMN_VOLUNTEER = "voluntariado"
+            private const val COLUMN_NET = "dineroNeto"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -42,12 +43,17 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
         val queryStats = "CREATE TABLE $TABLE_STATS(" +
                 "$COLUMN_VOLUNTEER INT," +
                 "$COLUMN_SPICE INT," +
-                "$COLUMN_MONEY INT);"
+                "$COLUMN_MONEY INT," +
+                "$COLUMN_NET INT);"
         db?.execSQL(queryStats)
-        val queryDefaultStats = "INSERT INTO $TABLE_STATS VALUES (0, 0, 0);"
+        val queryDefaultStats = "INSERT INTO $TABLE_STATS VALUES (0, 0, 0, 0);"
         db?.execSQL(queryDefaultStats)
         val queryDefaultUser = "INSERT INTO $TABLE_USER VALUES ('', '', '', '', '');"
         db?.execSQL(queryDefaultUser)
+        val queryDefaultDonation = "INSERT INTO $TABLE_DONATIONS VALUES ('', 0);"
+        db?.execSQL(queryDefaultDonation)
+        db?.execSQL(queryDefaultDonation)
+        db?.execSQL(queryDefaultDonation)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, vAnterior: Int, vActual: Int) {
@@ -85,8 +91,10 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
         val cursor = readableDatabase.query(TABLE_STATS, null, null, null, null, null, null)
         cursor.moveToFirst()
         val num = cursor.getInt(2) + 1
+        val net = cursor.getInt(3) + monto.toInt()
         val valoresStat = ContentValues()
         valoresStat.put(COLUMN_MONEY, num)
+        valoresStat.put(COLUMN_NET, net)
         writableDatabase.update(TABLE_STATS, valoresStat, null, null)
         val valoresDonation = ContentValues()
         valoresDonation.put(COLUMN_DATE, fecha)
@@ -126,4 +134,27 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
         return arrayOf(nombres, apellidos, email, telefono, direccion)
     }
 
+    fun llamarConteo(): Array<String> {
+        val cursor = readableDatabase.query(TABLE_STATS, null, null, null, null, null, null)
+        cursor.moveToFirst()
+        var volunteer = cursor.getString(0)
+        var spice = cursor.getString(1)
+        var money = cursor.getString(2)
+        var net = cursor.getString(3)
+        return arrayOf(volunteer, spice, money, net)
+    }
+
+    fun llamarRecientes(): Array<String> {
+        val cursor = readableDatabase.query(TABLE_DONATIONS, null, null, null, null, null, null)
+        cursor.moveToLast()
+        var fechaUno = cursor.getString(0)
+        var montoUno = cursor.getString(1)
+        cursor.moveToPrevious()
+        var fechaDos = cursor.getString(0)
+        var montoDos = cursor.getString(1)
+        cursor.moveToPrevious()
+        var fechaTres = cursor.getString(0)
+        var montoTres = cursor.getString(1)
+        return arrayOf(fechaUno, montoUno, fechaDos, montoDos, fechaTres, montoTres)
+    }
 }
