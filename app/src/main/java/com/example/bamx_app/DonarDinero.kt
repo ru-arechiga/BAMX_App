@@ -1,7 +1,10 @@
 package com.example.bamx_app
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
@@ -35,6 +38,7 @@ import com.paypal.checkout.order.PurchaseUnit
 import com.paypal.checkout.shipping.OnShippingChange
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -65,6 +69,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
                     Log.i("CaptureOrder", "Order successfully captured: $captureOrderResult")
                 }
                 Toast.makeText(activity?.applicationContext, "Pago exitoso", Toast.LENGTH_SHORT).show()
+                scheduleNotification()
                 val monto: TextInputEditText = requireView().findViewById(R.id.monto)
                 val nombres: TextInputEditText = requireView().findViewById(R.id.nombres)
                 val apellidos: TextInputEditText = requireView().findViewById(R.id.apellidos)
@@ -268,6 +273,47 @@ class DonarDinero : Fragment(), View.OnClickListener {
                 }
             }
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun scheduleNotification()
+    {
+        val intent = Intent(requireActivity().application, Notification::class.java)
+        val title = "BAMX"
+        val message = "No olvides Donar y ayudar a familias :)"
+        intent.putExtra(titleExtra, title)
+        intent.putExtra(messageExtra, message)
+
+        val pendingIntent = PendingIntent.getBroadcast(
+            requireActivity().application,
+            notificationID,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val alarmManager = activity?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val time = getTime()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            alarmManager.setExactAndAllowWhileIdle(
+                AlarmManager.RTC_WAKEUP,
+                time,
+                pendingIntent
+            )
+        }
+    }
+
+    private fun getTime() : Long
+    {
+        val c = Calendar.getInstance()
+        val minute = c.get(Calendar.MINUTE)
+        val hour = c.get(Calendar.HOUR)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+        val month = c.get(Calendar.MONTH)
+        val year = c.get(Calendar.YEAR)
+
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month, day, hour, minute+1)
+        return calendar.timeInMillis
     }
 
     companion object {
