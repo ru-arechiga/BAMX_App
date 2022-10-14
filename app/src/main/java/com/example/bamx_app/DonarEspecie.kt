@@ -64,13 +64,13 @@ class DonarEspecie : Fragment(), View.OnClickListener {
                 val mensaje: TextInputEditText = requireView().findViewById(R.id.mensaje)
 
                 database = FirebaseDatabase.getInstance().getReference("DonadoresEspecie")
-                val donadorEspecie = donadorEspecie(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombre.text.toString(), producto.text.toString(), productor.isChecked(), email.text.toString(), telefono.text.toString(), mensaje.text.toString())
+                val donadorEspecie = donadorEspecie(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombre.text.toString(), producto.text.toString(), productor.isChecked, email.text.toString(), telefono.text.toString(), mensaje.text.toString())
                 if (donadorEspecie.nombre!!.isNotEmpty() && donadorEspecie.producto!!.isNotEmpty() && donadorEspecie.email!!.isNotEmpty() && donadorEspecie.telefono!!.isNotEmpty() && donadorEspecie.mensaje!!.isNotEmpty()){
                     database.child(nombre.text.toString()).setValue(donadorEspecie).addOnSuccessListener {
                         db.donacionEspecie()
                         nombre.text!!.clear()
                         producto.text!!.clear()
-                        productor.setChecked(false)
+                        productor.isChecked = false
                         email.text!!.clear()
                         telefono.text!!.clear()
                         mensaje.text!!.clear()

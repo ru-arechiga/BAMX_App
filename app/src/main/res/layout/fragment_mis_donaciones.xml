@@ -587,79 +587,81 @@
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/compartir"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp">
+                android:layout_marginBottom="50dp"
+                android:background="@color/verde"
+                android:clipToPadding="false"
+                android:visibility="visible"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins"
+                    android:letterSpacing="0.1"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="20dp"
+                    android:text="COMPARTIR"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/verde"
-                    android:orientation="vertical">
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:scaleX="0.95"
+                    android:scaleY="0.95">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:fontFamily="@font/poppins"
-                        android:paddingTop="8dp"
-                        android:text="Compartir"
-                        android:textAlignment="center"
-                        android:textAllCaps="true"
-                        android:textColor="@color/blanco"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
+                    <ImageButton
+                        android:id="@+id/imageButton2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal">
+                        android:layout_weight="1"
+                        android:background="#00FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/twitter" />
 
-                        <ImageView
-                            android:id="@+id/imageView10"
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:src="@drawable/whatsapp" />
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/facebook" />
 
-                        <ImageButton
-                            android:id="@+id/imageButton"
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:background="@color/verde"
-                            android:contentDescription="TODO"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:src="@drawable/facebook" />
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/whatsapp" />
 
-                        <ImageButton
-                            android:id="@+id/imageButton2"
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:background="@color/verde"
-                            android:contentDescription="TODO"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:src="@drawable/twitter" />
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/email_logo" />
 
-                        <ImageView
-                            android:id="@+id/imageView11"
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:background="@color/verde"
-                            android:contentDescription="TODO"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:src="@drawable/email_logo" />
-
-                    </LinearLayout>
                 </LinearLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

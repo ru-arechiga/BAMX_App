@@ -4,10 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.util.Log
-import android.widget.CheckBox
-import android.widget.Toast
-import com.google.android.material.textfield.TextInputEditText
 
 class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
     companion object {
@@ -65,27 +61,23 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
         onCreate(db)
     }
 
-    fun findUserInfo(): Pair<String, String> {
-        val cursor = readableDatabase.query(TABLE_STATS, null, null, null, null, null, null)
-        cursor.moveToFirst()
-        return Pair(cursor.getString(0).toString(), cursor.getString(1).toString())
-    }
-
     fun voluntariado() {
         val cursor = readableDatabase.query(TABLE_STATS, null, null, null, null, null, null)
         cursor.moveToFirst()
-        var num = cursor.getInt(0) + 1
+        val num = cursor.getInt(0) + 1
         val valores = ContentValues()
         valores.put(COLUMN_VOLUNTEER, num)
+        cursor.close()
         writableDatabase.update(TABLE_STATS, valores, null, null)
     }
 
     fun donacionEspecie() {
         val cursor = readableDatabase.query(TABLE_STATS, null, null, null, null, null, null)
         cursor.moveToFirst()
-        var num = cursor.getInt(1) + 1
+        val num = cursor.getInt(1) + 1
         val valores = ContentValues()
         valores.put(COLUMN_SPICE, num)
+        cursor.close()
         writableDatabase.update(TABLE_STATS, valores, null, null)
     }
 
@@ -97,6 +89,7 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
         val valoresStat = ContentValues()
         valoresStat.put(COLUMN_MONEY, num)
         valoresStat.put(COLUMN_NET, net)
+        cursor.close()
         writableDatabase.update(TABLE_STATS, valoresStat, null, null)
         val valoresDonation = ContentValues()
         valoresDonation.put(COLUMN_DATE, fecha)
@@ -107,9 +100,10 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
     fun compartir() {
         val cursor = readableDatabase.query(TABLE_STATS, null, null, null, null, null, null)
         cursor.moveToFirst()
-        var num = cursor.getInt(4) + 1
+        val num = cursor.getInt(4) + 1
         val valores = ContentValues()
         valores.put(COLUMN_SOCIALS, num)
+        cursor.close()
         writableDatabase.update(TABLE_STATS, valores, null, null)
     }
 
@@ -136,36 +130,42 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
     fun llamarUsuario(): Array<String> {
         val cursor = readableDatabase.query(TABLE_USER, null, null, null, null, null, null)
         cursor.moveToFirst()
-        var nombres = cursor.getString(0)
-        var apellidos = cursor.getString(1)
-        var email = cursor.getString(2)
-        var telefono = cursor.getString(3)
-        var direccion = cursor.getString(4)
-        return arrayOf(nombres, apellidos, email, telefono, direccion)
+        val nombres = cursor.getString(0)
+        val apellidos = cursor.getString(1)
+        val email = cursor.getString(2)
+        val telefono = cursor.getString(3)
+        val direccion = cursor.getString(4)
+        val usuario = arrayOf(nombres, apellidos, email, telefono, direccion)
+        cursor.close()
+        return usuario
     }
 
     fun llamarConteo(): Array<String> {
         val cursor = readableDatabase.query(TABLE_STATS, null, null, null, null, null, null)
         cursor.moveToFirst()
-        var volunteer = cursor.getString(0)
-        var spice = cursor.getString(1)
-        var money = cursor.getString(2)
-        var net = cursor.getString(3)
-        var socials = cursor.getString(4)
-        return arrayOf(volunteer, spice, money, net, socials)
+        val volunteer = cursor.getString(0)
+        val spice = cursor.getString(1)
+        val money = cursor.getString(2)
+        val net = cursor.getString(3)
+        val socials = cursor.getString(4)
+        val conteo = arrayOf(volunteer, spice, money, net, socials)
+        cursor.close()
+        return conteo
     }
 
     fun llamarRecientes(): Array<String> {
         val cursor = readableDatabase.query(TABLE_DONATIONS, null, null, null, null, null, null)
         cursor.moveToLast()
-        var fechaUno = cursor.getString(0)
-        var montoUno = cursor.getString(1)
+        val fechaUno = cursor.getString(0)
+        val montoUno = cursor.getString(1)
         cursor.moveToPrevious()
-        var fechaDos = cursor.getString(0)
-        var montoDos = cursor.getString(1)
+        val fechaDos = cursor.getString(0)
+        val montoDos = cursor.getString(1)
         cursor.moveToPrevious()
-        var fechaTres = cursor.getString(0)
-        var montoTres = cursor.getString(1)
-        return arrayOf(fechaUno, montoUno, fechaDos, montoDos, fechaTres, montoTres)
+        val fechaTres = cursor.getString(0)
+        val montoTres = cursor.getString(1)
+        val recientes = arrayOf(fechaUno, montoUno, fechaDos, montoDos, fechaTres, montoTres)
+        cursor.close()
+        return recientes
     }
 }

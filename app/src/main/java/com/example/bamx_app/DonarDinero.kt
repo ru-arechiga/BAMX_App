@@ -1,7 +1,10 @@
 package com.example.bamx_app
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
@@ -9,12 +12,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -35,6 +36,7 @@ import com.paypal.checkout.order.PurchaseUnit
 import com.paypal.checkout.shipping.OnShippingChange
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -54,7 +56,6 @@ class DonarDinero : Fragment(), View.OnClickListener {
     private var param2: String? = null
     private lateinit var database : DatabaseReference
     private lateinit var db : DBHelper
-    private var check: Int? = 0
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,6 +66,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
                     Log.i("CaptureOrder", "Order successfully captured: $captureOrderResult")
                 }
                 Toast.makeText(activity?.applicationContext, "Pago exitoso", Toast.LENGTH_SHORT).show()
+                scheduleNotification()
                 val monto: TextInputEditText = requireView().findViewById(R.id.monto)
                 val nombres: TextInputEditText = requireView().findViewById(R.id.nombres)
                 val apellidos: TextInputEditText = requireView().findViewById(R.id.apellidos)
@@ -101,11 +103,11 @@ class DonarDinero : Fragment(), View.OnClickListener {
             onCancel = OnCancel {
                 // Optional callback for when a buyer cancels the paysheet
             },
-            onError = OnError { errorInfo ->
+            onError = OnError {
                 Toast.makeText(activity?.applicationContext, "Error en el pago", Toast.LENGTH_SHORT).show()
                 // Optional error callback
             },
-            onShippingChange = OnShippingChange { shippingChangeData, shippingChangeActions ->
+            onShippingChange = OnShippingChange { _, _ ->
                 // Optional onShippingChange callback. See update shipping section for more details.
             }
         )
@@ -129,7 +131,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
         boton.setOnClickListener(this)
         bottton.setOnClickListener(this)
         recordar.setOnClickListener(this)
-        var usuario = db.llamarUsuario()
+        val usuario = db.llamarUsuario()
         if(usuario[0] != String()) {
             val nombres: TextInputEditText = view.findViewById(R.id.nombres)
             val apellidos: TextInputEditText = view.findViewById(R.id.apellidos)
@@ -206,20 +208,20 @@ class DonarDinero : Fragment(), View.OnClickListener {
                 }
             }
             R.id.botonDonarOffline -> {
-                infoDonacionOnline.setVisibility(View.GONE)
-                infoDonacionOffline.setVisibility(View.VISIBLE)
+                infoDonacionOnline.visibility = View.GONE
+                infoDonacionOffline.visibility = View.VISIBLE
                 infoDonacionOnline.isEnabled = false
-                bDonarOffline.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
-                bDonarAhora.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.blanco)))
+                bDonarOffline.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.rojo))
+                bDonarAhora.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.blanco))
                 bDonarAhora.setTextColor(resources.getColor(R.color.rojo))
                 bDonarOffline.setTextColor(resources.getColor(R.color.blanco))
             }
             R.id.botonDonarAhora -> {
-                infoDonacionOnline.setVisibility(View.VISIBLE)
-                infoDonacionOffline.setVisibility(View.GONE)
+                infoDonacionOnline.visibility = View.VISIBLE
+                infoDonacionOffline.visibility = View.GONE
                 infoDonacionOnline.isEnabled = true
-                bDonarOffline.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.blanco)))
-                bDonarAhora.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.rojo)))
+                bDonarOffline.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.blanco))
+                bDonarAhora.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.rojo))
                 bDonarAhora.setTextColor(resources.getColor(R.color.blanco))
                 bDonarOffline.setTextColor(resources.getColor(R.color.rojo))
             }
@@ -268,6 +270,47 @@ class DonarDinero : Fragment(), View.OnClickListener {
                 }
             }
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun scheduleNotification()
+    {
+        val intent = Intent(requireActivity().application, Notification::class.java)
+        val title = "BAMX"
+        val message = "¡No olvides seguir donando para ayudar a más familias! :)"
+        intent.putExtra(titleExtra, title)
+        intent.putExtra(messageExtra, message)
+
+        val pendingIntent = PendingIntent.getBroadcast(
+            requireActivity().application,
+            notificationID,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val alarmManager = activity?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val time = getTime()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            alarmManager.setExactAndAllowWhileIdle(
+                AlarmManager.RTC_WAKEUP,
+                time,
+                pendingIntent
+            )
+        }
+    }
+
+    private fun getTime() : Long
+    {
+        val c = Calendar.getInstance()
+        val minute = c.get(Calendar.MINUTE)
+        val hour = c.get(Calendar.HOUR)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+        val month = c.get(Calendar.MONTH)
+        val year = c.get(Calendar.YEAR)
+
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month, day, hour, minute+1)
+        return calendar.timeInMillis
     }
 
     companion object {

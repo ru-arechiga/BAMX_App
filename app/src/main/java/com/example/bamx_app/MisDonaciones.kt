@@ -1,16 +1,11 @@
 package com.example.bamx_app
 
-import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.annotation.RequiresApi
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 // TODO: Rename parameter arguments, choose names that match
@@ -51,41 +46,41 @@ class MisDonaciones : Fragment(), View.OnClickListener {
         val imageButtons = arrayOf(voluntariadoM, especieM, monetariaM, netoM, redesM)
         for(i in imageButtons) {
             i.setOnClickListener(this)
-            var conteo = db.llamarConteo()
-            var index = imageButtons.indexOf(i)
-            var dbVal = conteo[index].toInt()
+            val conteo = db.llamarConteo()
+            val index = imageButtons.indexOf(i)
+            val dbVal = conteo[index].toInt()
             if (index == 2) {
-                if(dbVal >= 2 && dbVal < 5) {
-                    i.setImageResource(R.drawable.bronze)
-                    i.setTag("bronze")
-                } else if (dbVal >= 5 && dbVal < 10) {
+                if(dbVal in 2..4) {
+                    i.setImageResource(R.drawable.bronce)
+                    i.tag = "bronce"
+                } else if (dbVal in 5..9) {
                     i.setImageResource(R.drawable.plata)
-                    i.setTag("plata")
+                    i.tag = "plata"
                 } else if (dbVal >= 10) {
                     i.setImageResource(R.drawable.oro)
-                    i.setTag("oro")
+                    i.tag = "oro"
                 }
             } else if (index == 3) {
-                if(dbVal >= 200 && dbVal < 500) {
-                    i.setImageResource(R.drawable.bronze)
-                    i.setTag("bronze")
-                } else if (dbVal >= 500 && dbVal < 1000) {
+                if(dbVal in 200..499) {
+                    i.setImageResource(R.drawable.bronce)
+                    i.tag = "bronce"
+                } else if (dbVal in 500..999) {
                     i.setImageResource(R.drawable.plata)
-                    i.setTag("plata")
+                    i.tag = "plata"
                 } else if (dbVal >= 1000) {
                     i.setImageResource(R.drawable.oro)
-                    i.setTag("oro")
+                    i.tag = "oro"
                 }
             } else {
-                if(dbVal >= 1 && dbVal < 2) {
-                    i.setImageResource(R.drawable.bronze)
-                    i.setTag("bronze")
-                } else if (dbVal >= 2 && dbVal < 5) {
+                if(dbVal in 1..1) {
+                    i.setImageResource(R.drawable.bronce)
+                    i.tag = "bronce"
+                } else if (dbVal in 2..4) {
                     i.setImageResource(R.drawable.plata)
-                    i.setTag("plata")
+                    i.tag = "plata"
                 } else if (dbVal >= 5) {
                     i.setImageResource(R.drawable.oro)
-                    i.setTag("oro")
+                    i.tag = "oro"
                 }
             }
         }
@@ -97,7 +92,8 @@ class MisDonaciones : Fragment(), View.OnClickListener {
         volunteer.text = conteo[0]
         spice.text = conteo[1]
         money.text = conteo[2]
-        net.text = "$ ${conteo[3]} MXN"
+        val netDonations = "$${conteo[3]} MXN"
+        net.text = netDonations
         val recientes = db.llamarRecientes()
         if(recientes[0] != String()) {
             val donacionesRecientes: TextInputLayout = view.findViewById(R.id.donacionesRecientes)
@@ -105,7 +101,8 @@ class MisDonaciones : Fragment(), View.OnClickListener {
             val fechaRecienteUno: TextView = view.findViewById(R.id.fechaRecienteUno)
             val montoRecienteUno: TextView = view.findViewById(R.id.montoRecienteUno)
             fechaRecienteUno.text = recientes[0]
-            montoRecienteUno.text = "$ ${recientes[1]}"
+            val montoUno = "$ ${recientes[1]}"
+            montoRecienteUno.text = montoUno
         }
         if(recientes[2] != String()) {
             val recienteDos: LinearLayout = view.findViewById(R.id.recienteDos)
@@ -113,7 +110,8 @@ class MisDonaciones : Fragment(), View.OnClickListener {
             val fechaRecienteDos: TextView = view.findViewById(R.id.fechaRecienteDos)
             val montoRecienteDos: TextView = view.findViewById(R.id.montoRecienteDos)
             fechaRecienteDos.text = recientes[2]
-            montoRecienteDos.text = "$ ${recientes[3]}"
+            val montoDos = "$ ${recientes[3]}"
+            montoRecienteDos.text = montoDos
         }
         if(recientes[4] != String()) {
             val recienteTres: LinearLayout = view.findViewById(R.id.recienteTres)
@@ -121,7 +119,8 @@ class MisDonaciones : Fragment(), View.OnClickListener {
             val fechaRecienteTres: TextView = view.findViewById(R.id.fechaRecienteTres)
             val montoRecienteTres: TextView = view.findViewById(R.id.montoRecienteTres)
             fechaRecienteTres.text = recientes[4]
-            montoRecienteTres.text = "$ ${recientes[5]}"
+            val montoTres = "$ ${recientes[5]}"
+            montoRecienteTres.text = montoTres
         }
         return view
     }
@@ -150,67 +149,87 @@ class MisDonaciones : Fragment(), View.OnClickListener {
         when (v?.id) {
             R.id.medallaVoluntariado -> {
                 val voluntariadoM: ImageButton = requireView().findViewById(R.id.medallaVoluntariado)
-                val tag = voluntariadoM.tag
-                if(tag == "bronze") {
-                    Toast.makeText(activity?.applicationContext, "Bronce: 1", Toast.LENGTH_SHORT).show()
-                } else if (tag == "plata") {
-                    Toast.makeText(activity?.applicationContext, "Plata: 2-5", Toast.LENGTH_SHORT).show()
-                } else if (tag == "oro") {
-                    Toast.makeText(activity?.applicationContext, "Oro: 5+", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(activity?.applicationContext, "Sin medalla: 0", Toast.LENGTH_SHORT).show()
+                when (voluntariadoM.tag) {
+                    "bronce" -> {
+                        Toast.makeText(activity?.applicationContext, "Bronce: 1", Toast.LENGTH_SHORT).show()
+                    }
+                    "plata" -> {
+                        Toast.makeText(activity?.applicationContext, "Plata: 2-5", Toast.LENGTH_SHORT).show()
+                    }
+                    "oro" -> {
+                        Toast.makeText(activity?.applicationContext, "Oro: 5+", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(activity?.applicationContext, "Sin medalla: 0", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
             R.id.medallaEspecie -> {
                 val especieM: ImageButton = requireView().findViewById(R.id.medallaEspecie)
-                val tag = especieM.tag
-                if(tag == "bronze") {
-                    Toast.makeText(activity?.applicationContext, "Bronce: 1", Toast.LENGTH_SHORT).show()
-                } else if (tag == "plata") {
-                    Toast.makeText(activity?.applicationContext, "Plata: 2-5", Toast.LENGTH_SHORT).show()
-                } else if (tag == "oro") {
-                    Toast.makeText(activity?.applicationContext, "Oro: 5+", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(activity?.applicationContext, "Sin medalla: 0", Toast.LENGTH_SHORT).show()
+                when (especieM.tag) {
+                    "bronce" -> {
+                        Toast.makeText(activity?.applicationContext, "Bronce: 1", Toast.LENGTH_SHORT).show()
+                    }
+                    "plata" -> {
+                        Toast.makeText(activity?.applicationContext, "Plata: 2-5", Toast.LENGTH_SHORT).show()
+                    }
+                    "oro" -> {
+                        Toast.makeText(activity?.applicationContext, "Oro: 5+", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(activity?.applicationContext, "Sin medalla: 0", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
             R.id.medallaRedes -> {
                 val redesM: ImageButton = requireView().findViewById(R.id.medallaRedes)
-                val tag = redesM.tag
-                if(tag == "bronze") {
-                    Toast.makeText(activity?.applicationContext, "Bronce: 1", Toast.LENGTH_SHORT).show()
-                } else if (tag == "plata") {
-                    Toast.makeText(activity?.applicationContext, "Plata: 2-5", Toast.LENGTH_SHORT).show()
-                } else if (tag == "oro") {
-                    Toast.makeText(activity?.applicationContext, "Oro: 5+", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(activity?.applicationContext, "Sin medalla: 0", Toast.LENGTH_SHORT).show()
+                when (redesM.tag) {
+                    "bronce" -> {
+                        Toast.makeText(activity?.applicationContext, "Bronce: 1", Toast.LENGTH_SHORT).show()
+                    }
+                    "plata" -> {
+                        Toast.makeText(activity?.applicationContext, "Plata: 2-5", Toast.LENGTH_SHORT).show()
+                    }
+                    "oro" -> {
+                        Toast.makeText(activity?.applicationContext, "Oro: 5+", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(activity?.applicationContext, "Sin medalla: 0", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
             R.id.medallaNeto -> {
                 val netoM: ImageButton = requireView().findViewById(R.id.medallaNeto)
-                val tag = netoM.tag
-                if(tag == "bronze") {
-                    Toast.makeText(activity?.applicationContext, "Bronce: 200-500", Toast.LENGTH_SHORT).show()
-                } else if (tag == "plata") {
-                    Toast.makeText(activity?.applicationContext, "Plata: 500-1000", Toast.LENGTH_SHORT).show()
-                } else if (tag == "oro") {
-                    Toast.makeText(activity?.applicationContext, "Oro: 1000+", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(activity?.applicationContext, "Sin medalla: 0-200", Toast.LENGTH_SHORT).show()
+                when (netoM.tag) {
+                    "bronce" -> {
+                        Toast.makeText(activity?.applicationContext, "Bronce: $200-500", Toast.LENGTH_SHORT).show()
+                    }
+                    "plata" -> {
+                        Toast.makeText(activity?.applicationContext, "Plata: $500-1000", Toast.LENGTH_SHORT).show()
+                    }
+                    "oro" -> {
+                        Toast.makeText(activity?.applicationContext, "Oro: $1000+", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(activity?.applicationContext, "Sin medalla: $0-200", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
             R.id.medallaMonetaria -> {
                 val monetariaM: ImageButton = requireView().findViewById(R.id.medallaMonetaria)
-                val tag = monetariaM.tag
-                if(tag == "bronze") {
-                    Toast.makeText(activity?.applicationContext, "Bronce: 2-5", Toast.LENGTH_SHORT).show()
-                } else if (tag == "plata") {
-                    Toast.makeText(activity?.applicationContext, "Plata: 5-10", Toast.LENGTH_SHORT).show()
-                } else if (tag == "oro") {
-                    Toast.makeText(activity?.applicationContext, "Oro: 10+", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(activity?.applicationContext, "Sin medalla: 0-2", Toast.LENGTH_SHORT).show()
+                when (monetariaM.tag) {
+                    "bronce" -> {
+                        Toast.makeText(activity?.applicationContext, "Bronce: 2-5", Toast.LENGTH_SHORT).show()
+                    }
+                    "plata" -> {
+                        Toast.makeText(activity?.applicationContext, "Plata: 5-10", Toast.LENGTH_SHORT).show()
+                    }
+                    "oro" -> {
+                        Toast.makeText(activity?.applicationContext, "Oro: 10+", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(activity?.applicationContext, "Sin medalla: 0-2", Toast.LENGTH_SHORT).show()
+                    }
                 }
             } else -> {
                 Toast.makeText(activity?.applicationContext, "HOLA TEST", Toast.LENGTH_SHORT).show()
