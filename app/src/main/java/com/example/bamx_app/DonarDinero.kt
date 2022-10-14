@@ -76,7 +76,7 @@ class DonarDinero : Fragment(), View.OnClickListener {
                 val fecha: String = LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss"))
                 db.donacionDinero(monto.text.toString(), fecha)
                 if(!anonimato.isChecked) {
-                    val donadorDinero = donadorDinero(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombres.text.toString(), apellidos.text.toString(), monto.text.toString(), email.text.toString(), telefono.text.toString(), direccion.text.toString())
+                    val donadorDinero = donadorDinero(LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y H:m:ss")), nombres.text.toString(), apellidos.text.toString(), email.text.toString(), telefono.text.toString(), direccion.text.toString())
                     database = FirebaseDatabase.getInstance().getReference("DonadoresDinero")
                     database.child(nombres.text.toString() + " " + apellidos.text.toString()).setValue(donadorDinero).addOnSuccessListener {
                         Toast.makeText(
@@ -198,7 +198,11 @@ class DonarDinero : Fragment(), View.OnClickListener {
                         }
                     )
                 } else {
-                    Toast.makeText(activity?.applicationContext, "Los campos indicados son mandatorios", Toast.LENGTH_SHORT).show()
+                    if (anonimato.isChecked) {
+                        Toast.makeText(activity?.applicationContext, "Un monto es necesario", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(activity?.applicationContext, "Los campos indicados son mandatorios", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
             R.id.botonDonarOffline -> {
