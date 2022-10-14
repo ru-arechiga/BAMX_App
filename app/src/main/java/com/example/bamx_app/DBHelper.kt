@@ -26,6 +26,7 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
             private const val COLUMN_SPICE = "especie"
             private const val COLUMN_VOLUNTEER = "voluntariado"
             private const val COLUMN_NET = "dineroNeto"
+            private const val COLUMN_SOCIALS = "menciones"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -44,9 +45,10 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
                 "$COLUMN_VOLUNTEER INT," +
                 "$COLUMN_SPICE INT," +
                 "$COLUMN_MONEY INT," +
-                "$COLUMN_NET INT);"
+                "$COLUMN_NET INT," +
+                "$COLUMN_SOCIALS INT);"
         db?.execSQL(queryStats)
-        val queryDefaultStats = "INSERT INTO $TABLE_STATS VALUES (0, 0, 0, 0);"
+        val queryDefaultStats = "INSERT INTO $TABLE_STATS VALUES (0, 0, 0, 0, 0);"
         db?.execSQL(queryDefaultStats)
         val queryDefaultUser = "INSERT INTO $TABLE_USER VALUES ('', '', '', '', '');"
         db?.execSQL(queryDefaultUser)
@@ -100,7 +102,15 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
         valoresDonation.put(COLUMN_DATE, fecha)
         valoresDonation.put(COLUMN_AMOUNT, monto)
         writableDatabase.insert(TABLE_DONATIONS, null, valoresDonation)
+    }
 
+    fun compartir() {
+        val cursor = readableDatabase.query(TABLE_STATS, null, null, null, null, null, null)
+        cursor.moveToFirst()
+        var num = cursor.getInt(4) + 1
+        val valores = ContentValues()
+        valores.put(COLUMN_SOCIALS, num)
+        writableDatabase.update(TABLE_STATS, valores, null, null)
     }
 
     fun guardarUsuario(nombres : String, apellidos : String, email : String, telefono : String, direccion: String) {
@@ -141,7 +151,8 @@ class DBHelper(context: Context?): SQLiteOpenHelper(context, DB_FILE, null, 1){
         var spice = cursor.getString(1)
         var money = cursor.getString(2)
         var net = cursor.getString(3)
-        return arrayOf(volunteer, spice, money, net)
+        var socials = cursor.getString(4)
+        return arrayOf(volunteer, spice, money, net, socials)
     }
 
     fun llamarRecientes(): Array<String> {

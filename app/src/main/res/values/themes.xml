@@ -14,9 +14,9 @@
         <!-- Customize your theme here. -->
         <item name="android:colorEdgeEffect">@color/naranja</item>
     </style>
-    <style name="Spinner" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+    <style name="Dialog" parent="android:Widget.TextView.SpinnerItem">
         <item name="android:textColor">@color/grisOscuro</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">12dp</item>
         <item name="android:fontFamily">@font/poppins</item>
     </style>
 
