@@ -623,7 +623,7 @@
                     android:scaleY="0.95">
 
                     <ImageButton
-                        android:id="@+id/imageButton2"
+                        android:id="@+id/twitterButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -632,7 +632,7 @@
                         android:src="@drawable/twitter" />
 
                     <ImageButton
-                        android:id="@+id/imageButton"
+                        android:id="@+id/facebookButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -640,8 +640,8 @@
                         android:scaleType="fitCenter"
                         android:src="@drawable/facebook" />
 
-                    <ImageView
-                        android:id="@+id/imageView10"
+                    <ImageButton
+                        android:id="@+id/whatsappButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -649,8 +649,8 @@
                         android:scaleType="fitCenter"
                         android:src="@drawable/whatsapp" />
 
-                    <ImageView
-                        android:id="@+id/imageView11"
+                    <ImageButton
+                        android:id="@+id/mailButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

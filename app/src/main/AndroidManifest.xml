@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
 
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -19,7 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BAMX_App"
         tools:targetApi="31">
-        
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/><meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1168178077112759"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true" />
         <receiver
             android:name=".Notification"
             android:enabled="true"/>

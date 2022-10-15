@@ -16,4 +16,5 @@
         <item>Semestrales</item>
         <item>Anuales</item>
     </string-array>
+    <string name="facebook_app_id">1168178077112759</string><string name="facebook_client_token">40230073432303bc3263a68d605aced0</string>
 </resources>
