@@ -4,14 +4,15 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.Fragment
 import com.facebook.share.model.ShareLinkContent
 import com.facebook.share.widget.ShareDialog
 import com.google.android.material.textfield.TextInputLayout
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,7 +38,7 @@ class MisDonaciones : Fragment(), View.OnClickListener {
             param2 = it.getString(ARG_PARAM2)
         }
         db = DBHelper(activity)
-        shareDialog = ShareDialog(this);
+        shareDialog = ShareDialog(this)
     }
 
     override fun onCreateView(
@@ -132,7 +133,6 @@ class MisDonaciones : Fragment(), View.OnClickListener {
 
         val btnWhatsapp : ImageButton = view.findViewById(R.id.whatsappButton)
         btnWhatsapp.setOnClickListener {
-            val conteo = db.llamarConteo()
             try {
                 val sendIntent = Intent()
                 sendIntent.action = Intent.ACTION_SEND
@@ -140,7 +140,7 @@ class MisDonaciones : Fragment(), View.OnClickListener {
                         "de Alimentos de México\n Dinero donado: $${conteo[3]} MXN \n Cantidad de donaciones monetarias: " + conteo[2]
                         +"\n Sesiones de voluntariado: " + conteo[0] + "\n Donaciones en especie: " + conteo[1])
                 sendIntent.type = "text/plain"
-                sendIntent.setPackage("com.whatsapp");
+                sendIntent.setPackage("com.whatsapp")
                 startActivity(sendIntent)
             }catch (e: Exception) {
                 Toast.makeText(activity, "WhatsApp no esta instalado en su dispositivo", Toast.LENGTH_LONG)
@@ -172,7 +172,7 @@ class MisDonaciones : Fragment(), View.OnClickListener {
                         "de Alimentos de México\n Dinero donado: $${conteo[3]} MXN \n Cantidad de donaciones monetarias: " + conteo[2]
                         +"\n Sesiones de voluntariado: " + conteo[0] + "\n Donaciones en especie: " + conteo[1])
                 sendIntent.type = "text/plain"
-                sendIntent.setPackage("com.twitter.android");
+                sendIntent.setPackage("com.twitter.android")
                 startActivity(sendIntent)
             } catch (e: Exception) {
                 Toast.makeText(activity, "Twitter no esta instalado en su dispositivo", Toast.LENGTH_LONG)
@@ -184,18 +184,18 @@ class MisDonaciones : Fragment(), View.OnClickListener {
         val btnMail : ImageButton = view.findViewById(R.id.mailButton)
 
         btnMail.setOnClickListener {
-            val i = Intent(Intent.ACTION_SEND)
-            i.type = "message/rfc822"
-            i.putExtra(Intent.EXTRA_SUBJECT, "Mis donaciones a BAMX")
-            i.putExtra(Intent.EXTRA_TEXT, "¡Hola! me gustaría compartirte mis donaciones al Banco " +
-                    "de Alimentos de México\n Dinero donado: $${conteo[3]} MXN \n Cantidad de donaciones monetarias: " + conteo[2]
-                    +"\n Sesiones de voluntariado: " + conteo[0] + "\n Donaciones en especie: " + conteo[1])
             try {
-                startActivity(Intent.createChooser(i, "Mandar correo..."))
+                val intent = Intent(Intent.ACTION_SENDTO)
+                intent.data = Uri.parse("mailto:")
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Mis donaciones a BAMX")
+                intent.putExtra(Intent.EXTRA_TEXT, "¡Hola! me gustaría compartirte mis donaciones al Banco " +
+                        "de Alimentos de México\n Dinero donado: $${conteo[3]} MXN \n Cantidad de donaciones monetarias: " + conteo[2]
+                        +"\n Sesiones de voluntariado: " + conteo[0] + "\n Donaciones en especie: " + conteo[1])
+                startActivity(intent)
             } catch (ex: ActivityNotFoundException) {
                 Toast.makeText(
                     activity,
-                    "No hay alguna aplicacion de correo electrónico instalada",
+                    "No hay alguna aplicación de correo electrónico instalada",
                     Toast.LENGTH_SHORT
                 ).show()
             }

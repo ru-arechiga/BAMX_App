@@ -414,7 +414,8 @@
                             android:name="com.example.bamx_app.googleMaps"
                             android:layout_width="match_parent"
                             android:layout_height="400dp"
-                            android:layout_gravity="center" />
+                            android:layout_gravity="center"
+                            tools:layout="@layout/fragment_google_maps" />
 
                     </FrameLayout>
                 </FrameLayout>
