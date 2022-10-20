@@ -1,13 +1,9 @@
 package com.example.bamx_app
 
-import android.util.Log
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.google.firebase.database.DatabaseReference
-
 import org.junit.Test
 import org.junit.runner.RunWith
-import com.google.firebase.database.*
 import org.junit.Assert.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -15,7 +11,6 @@ import java.time.format.DateTimeFormatter
 @RunWith(AndroidJUnit4::class)
 class PruebasUnitarias {
 
-    private lateinit var database : DatabaseReference
     private lateinit var db : DBHelper
     val appContext = InstrumentationRegistry.getInstrumentation().targetContext
     @Test
@@ -54,27 +49,5 @@ class PruebasUnitarias {
         db.voluntariado()
         val conteo2 = db.llamarConteo()
         assertEquals(1, conteo2[0].toInt() - conteo1[0].toInt())
-    }
-
-    @Test
-    fun checar_registro_voluntariado_exitoso() {
-        database = FirebaseDatabase.getInstance().getReference("Voluntarios")
-        Log.i("Pruebita", "dfjgodfigj")
-     /*   database.child("Hector").child("nombre").get().addOnSuccessListener {
-            Log.i("BUSCAAAAA", "lol")
-            //"${it.value}"
-            //${it.value.toString()}
-        }.addOnFailureListener{
-            Log.i("firebase", "Error getting data", it)
-        }*/
-        database.child("Hector").child("nombre").get().addOnSuccessListener {
-            Log.i("firebase", "Got value")
-        }.addOnFailureListener{
-            Log.e("firebase", "Error getting data", it)
-        }
-
-
-
-        assertEquals("d","d")
     }
 }
